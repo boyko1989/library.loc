@@ -84,6 +84,13 @@ body {
     background: #f7f7f7;
 }
 
+/*Это специальные правила для тестового визуального редактора*/
+.content {
+    width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
 /* добавим очистку потока для всех контейнеров, внутри которых задано обтекание дочерних элементов */
 header:after, .container:after, footer:after, .widget-posts-list li:after, #subscribe:after {
     content: "";
