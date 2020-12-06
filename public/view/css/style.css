@@ -91,6 +91,13 @@ body {
     padding: 20px;
 }
 
+textarea {
+    padding: 30px;
+    border: 1px solid #888;
+
+
+}
+
 /* добавим очистку потока для всех контейнеров, внутри которых задано обтекание дочерних элементов */
 header:after, .container:after, footer:after, .widget-posts-list li:after, #subscribe:after {
     content: "";

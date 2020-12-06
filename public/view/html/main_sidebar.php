@@ -9,6 +9,6 @@
         </ul>
     </div>
     <br>
-<a href="view/input.php" class="widget-title">Добавить статью</a>
+<a href="view/html/create.php" class="widget-title">Добавить статью</a>
 
 </aside>
