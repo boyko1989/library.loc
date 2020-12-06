@@ -1,5 +1,4 @@
-
-<body>
+		<body>
         <div class="content">
 
             <a href="exp.php">Результат</a><br><br>
