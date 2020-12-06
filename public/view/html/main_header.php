@@ -13,7 +13,7 @@
       </form>
       <ul id="menu">
         <li><a href="view/html/example.php">Файл примера</a></li> 
-        <li><a href="view/html/exp.php">Экс. с визредом</a></li> 
+        <li><a href="view/html/exp.php">WYSIWIG</a></li> 
       </ul>
     </nav>
 </header>

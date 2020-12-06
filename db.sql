@@ -3,3 +3,11 @@ CREATE TABLE `library`.`articles` ( `id_articles` INT UNSIGNED NOT NULL AUTO_INC
 /*---------------------------*/
 
 CREATE TABLE `library`.`editor` ( `id` SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT , `text` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;
+
+/*---------------------------*/
+
+ALTER TABLE `editor` ADD `theme` VARCHAR(255) NOT NULL AFTER `text`;
+
+/*---------------------------*/
+
+ALTER TABLE `editor` ADD `partheme` VARCHAR(255) NOT NULL AFTER `theme`;

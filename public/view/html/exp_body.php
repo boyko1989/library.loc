@@ -4,13 +4,19 @@
             <a href="/">На главную</a><br><br>
             <?php         
                 $txt = selectTxt();
-                /*foreach($txt as $item) {
+                foreach($txt as $item) {
+                    echo '<article id="post-1" class="post">
+                    <div class="post-content">
+                    <h1><u>Тема: '.$item['theme'].'</u></h1><br>';
+                    echo '<a href=""><u>Относится к теме: '.$item['partheme'].'</u></a><br><br>';
                     echo $item['text'];
-                    echo '<br>===================================================<br>';
-                }*/ 
+                    echo '</div>
+                    </article>
+                    <br>===================================================<br>';
+                }/*
                 echo '<pre>';
                 print_r($txt);
-                echo '</pre>';       
+                echo '</pre>';    */    
             ?>
         </div>
     </body>
