@@ -1,8 +1,4 @@
-<<<<<<< HEAD
-		<body>
-=======
 <body>
->>>>>>> 8245b4022ee7a311b22072f5462c25ed10f7039a
         <div class="content">
 
             <a href="exp.php">Результат</a><br><br>
