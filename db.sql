@@ -23,3 +23,11 @@ ALTER TABLE `articles` ADD `theme_id` INT UNSIGNED NOT NULL AFTER `id_articles`;
 /*---------------------------*/
 
 ALTER TABLE `articles` DROP `link_articles`;
+
+/*---------------------------*/
+
+ALTER TABLE `articles` CHANGE `id_articles` `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, CHANGE `theme_id` `parent` INT UNSIGNED NOT NULL, CHANGE `name_articles` `title` VARCHAR(128) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL, CHANGE `content_articles` `content` MEDIUMTEXT CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL;
+
+ALTER TABLE `articles` ADD `alias` VARCHAR(255) NOT NULL AFTER `content`, ADD `image` VARCHAR(255) NOT NULL DEFAULT 'empty_thumb.jpg' AFTER `alias`;
+
+ALTER TABLE `theme` CHANGE `theme_id` `id` INT UNSIGNED NOT NULL AUTO_INCREMENT, CHANGE `theme_title` `title` VARCHAR(255) CHARACTER SET utf8mb4 COLLATE utf8mb4_0900_ai_ci NOT NULL, CHANGE `theme_parent` `parent` INT UNSIGNED NOT NULL;
