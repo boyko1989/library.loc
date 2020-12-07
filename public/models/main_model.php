@@ -38,9 +38,6 @@ function theme_to_string($data){
 	return $string;
 }
 
-/**
-* Шаблон вывода категорий
-**/
 function theme_to_template($theme){
 	ob_start();
 	include 'views/theme_template.php';

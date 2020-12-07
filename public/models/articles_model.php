@@ -10,5 +10,4 @@ function get_one_articles($articles_alias){
 	$res = mysqli_query($connection, $query);
 	return mysqli_fetch_assoc($res);
 }
-
 ?>
