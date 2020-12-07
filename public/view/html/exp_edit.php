@@ -1,6 +1,9 @@
-<?php 
+<?php session_start();
     require_once('../../connect.php');
     require_once('../../model/exp_model.php');
+
+    $from_where = $_SERVER['HTTP_REFERER'];
+    
     if($_POST['submit']) {
         update($_POST['txt'], $_POST['id'], $_POST['theme'], $_POST['partheme']);
         header("Location: exp.php");
@@ -16,6 +19,10 @@
 
             <a href="exp.php">Результат</a><br><br>
             <a href="/">На главную</a><br><br>
+            <?php echo 'Вы перешли сюда с '.$from_where; ?><br><br>
+
+            <?php  //echo $_SESSION['txt'];
+                         echo '<pre>'; print_r($_SESSION); echo '</pre>'; ?>
 
             <?php //echo '<pre>'; print_r($txt); echo '</pre>'; ?>
 
