@@ -1,4 +1,4 @@
-<?php defined("CATALOG") or die("Access denied"); ?>
+<?php //defined("CATALOG") or die("Access denied"); ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>

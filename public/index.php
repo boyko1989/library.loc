@@ -1,6 +1,6 @@
 <?php
 error_reporting(E_ALL);
-define("CATALOG", TRUE);
+//define("CATALOG", TRUE);
 
 $routes = array(
 	array('url' => '#^$|^\?#', 'view' => 'theme'),

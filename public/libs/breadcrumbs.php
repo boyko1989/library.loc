@@ -1,4 +1,4 @@
-<?php defined("CATALOG") or die("Access denied");
+<?php //defined("CATALOG") or die("Access denied");
 
 // хлебные крошки
 // return true (array not empty) || return false

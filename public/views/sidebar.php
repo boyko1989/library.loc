@@ -1,4 +1,4 @@
-<?php defined("CATALOG") or die("Access denied"); ?>
+<?php //defined("CATALOG") or die("Access denied"); ?>
 <aside>
     <div class="widget">
         <h4 class="widget-title">Темы:</h4>
@@ -8,6 +8,6 @@
 </ul>
 </div>
     <br>
-<a href="view/create.php" class="widget-title">Добавить статью</a>
+<a href="/public/views/create.php" class="widget-title">Добавить статью</a>
 
 </aside>
