@@ -33,7 +33,7 @@
 <body>
     <div class="content">
         <a href="/">На главную</a><br><br>      
-        <form action="create_article.php" method="post">
+        <form action="editor_controller.php" method="post">
             <p><b>Название:</b> 
             <input type="text" name="name_articles"><br><br></p>
 
