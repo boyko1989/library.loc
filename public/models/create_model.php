@@ -1,4 +1,4 @@
-<?php //defined("CATALOG") or die("Access denied");
+<?php 
 function insert_content($theme_title, $theme_parent, $content_articles, $name_articles, $article_alias) {
    // session_start();
 		global $connection;
@@ -16,11 +16,9 @@ function insert_content($theme_title, $theme_parent, $content_articles, $name_ar
 		// echo $theme_id;
 		 //$_SESSION = ["theme_id" => $theme_id];
         
-    $query_txt = "INSERT INTO `articles`(`id`, `parent`, `title`, `content`, `alias`, `image`) VALUES (NULL, '$theme_id', '$name_articles', '$content_articles', '$article_alias', 'thumb');";
-		//echo $query_txt;
+    $query_txt = "INSERT INTO `articles`(`id`, `parent`, `title`, `content`, `alias`, `image`) VALUES (NULL, '$theme_id', '$name_articles', '$content_articles', '$article_alias', 'thumb');";		
     $res_txt = mysqli_query($connection, $query_txt);
 		
-//echo $theme_id;
 }
 function get_option_theme() {
     global $connection;

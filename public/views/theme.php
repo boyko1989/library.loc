@@ -1,4 +1,3 @@
-<?php //defined("CATALOG") or die("Access denied"); ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -39,16 +38,14 @@
 		</div>
 		<div class="content">
 			<p><?=$breadcrumbs;?></p>
-			<br>
-			<hr>
-
+			<br><hr><br>
 			<div>
 				<select name="perpage" id="perpage">
 					<?php foreach($option_perpage as $option): ?>
 						<option <?php if($perpage == $option) echo "selected"; ?> value="<?=$option?>"> <?=$option?> статей на страницу</option>
 					<?php endforeach; ?>
-				</select>
-			</div>
+				</select><br>
+			</div><br>
 
 			<?php if($articles): ?>
 				
@@ -57,7 +54,7 @@
 				<?php endif; ?>
 
 				<?php foreach($articles as $art): ?>
-					<a href="<?=PATH?>articles/<?=$art['alias']?>"><?=$art['title']?></a><br>
+					<a href="<?=PATH?>articles/<?=$art['alias']?>"><?=$art['title']?></a><br><br>
 				<?php endforeach; ?>				
 				
 			<?php else: ?>

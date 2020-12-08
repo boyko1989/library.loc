@@ -1,5 +1,4 @@
-<?php ///defined("CATALOG") or die("Access denied");
-
+<?php 
 function print_arr($array){
 	echo "<pre>" . print_r($array, true) . "</pre>";
 }

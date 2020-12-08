@@ -1,11 +1,11 @@
 <?php
 error_reporting(E_ALL);
-//define("CATALOG", TRUE);
 
 $routes = array(
 	array('url' => '#^$|^\?#', 'view' => 'theme'),
 	array('url' => '#^articles/(?P<articles_alias>[a-z0-9-]+)#i', 'view' => 'articles'),
 	array('url' => '#^theme/(?P<id>\d+)#i', 'view' => 'theme'),
+	array('url' => '#^editor/#i', 'view' =>'editor'),
 	array('url' => '#^editor/(?P<articles_alias>[a-z0-9-]+)#i', 'view' =>'editor')
 );
 

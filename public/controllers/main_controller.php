@@ -1,5 +1,4 @@
-<?php //defined("CATALOG") or die("Access denied");
-
+<?php 
 include '../config.php';
 include 'models/main_model.php';
 

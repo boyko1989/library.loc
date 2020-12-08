@@ -1,4 +1,3 @@
-<?php //defined("CATALOG") or die("Access denied"); ?>
 <aside>
     <div class="widget">
         <h4 class="widget-title">Темы:</h4>

@@ -1,8 +1,4 @@
-<?php //defined("CATALOG") or die("Access denied");
-
-/**
-* Получение ID дочерних категорий
-**/
+<?php 
 function cats_id($array, $id){
 	if(!$id) return false;
 	$data = null;
@@ -15,9 +11,6 @@ function cats_id($array, $id){
 	return $data;
 }
 
-/**
-* Получение товаров
-**/
 function get_articles($ids, $start_pos, $perpage){
 	global $connection;
 	if($ids){
@@ -33,9 +26,6 @@ function get_articles($ids, $start_pos, $perpage){
 	return $articles;
 }
 
-/**
-* Кол-во товаров
-**/
 function count_goods($ids){
 	global $connection;
 	if( !$ids ){
@@ -47,5 +37,4 @@ function count_goods($ids){
 	$count_goods = mysqli_fetch_row($res);
 	return $count_goods[0];
 }
-
 ?>
