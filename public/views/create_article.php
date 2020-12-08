@@ -2,6 +2,7 @@
 //defined("CATALOG") or die("Access denied");
 require_once('../../config.php');
 require_once('../models/create_model.php');
+//$theme_ = $_POST['theme'];
 $theme_title = $_POST['theme'];
 $theme_parent = $_POST['partheme'];
 $content_articles = $_POST['txt'];
@@ -20,5 +21,15 @@ $_SESSION = [
 echo '<pre>';
 print_r($_SESSION);
 echo '</pre>';
-//header("Location: article.php");
+header("Location: ".PATH."articles/".$article_alias."");
 ?>
+
+<!--http://boyko.sytes.net/public/views/'.PATH.'artticle/'.Array.'-->
+
+
+
+
+
+
+
+

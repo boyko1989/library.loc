@@ -2,9 +2,9 @@
 
 define("DBHOST", "localhost");
 define("DBUSER", "root");
-define("DBPASS", "root");
+define("DBPASS", "XE2Z5NMNXE2Z5NMN");
 define("DB", "library");
-define("PATH", "http://library.loc/");
+define("PATH", "http://boyko.sytes.net/");
 define("PERPAGE", 5);
 $option_perpage = array(5, 10, 15);
 

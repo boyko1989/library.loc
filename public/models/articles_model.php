@@ -1,8 +1,4 @@
-<?php //defined("CATALOG") or die("Access denied");
-
-/**
-* Получение отдельного товара
-**/
+<?php
 function get_one_articles($articles_alias){
 	global $connection;
 	$articles_alias = mysqli_real_escape_string($connection, $articles_alias);

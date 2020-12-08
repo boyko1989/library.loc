@@ -8,6 +8,6 @@
 </ul>
 </div>
     <br>
-<a href="/public/views/create.php" class="widget-title">Добавить статью</a>
+<a href="<?=PATH?>editor/" class="widget-title">Добавить статью</a>
 
 </aside>

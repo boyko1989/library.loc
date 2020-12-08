@@ -5,7 +5,8 @@ error_reporting(E_ALL);
 $routes = array(
 	array('url' => '#^$|^\?#', 'view' => 'theme'),
 	array('url' => '#^articles/(?P<articles_alias>[a-z0-9-]+)#i', 'view' => 'articles'),
-	array('url' => '#^theme/(?P<id>\d+)#i', 'view' => 'theme')
+	array('url' => '#^theme/(?P<id>\d+)#i', 'view' => 'theme'),
+	array('url' => '#^editor/(?P<articles_alias>[a-z0-9-]+)#i', 'view' =>'editor')
 );
 
 // $url = str_replace('/catalog/', '', $_SERVER['REQUEST_URI']);
@@ -28,3 +29,12 @@ extract($match);
 // $product_alias - alias продукта
 // $view - вид для подключения
 include "controllers/{$view}_controller.php";
+
+
+
+
+
+
+
+
+
