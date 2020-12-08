@@ -5,7 +5,7 @@
 }
 .sidebar{
 	float: left;
-	width: 300px;
+	max-width: 300px;
 }
 .content{
 	float: left;
@@ -358,7 +358,7 @@ header {
 
 /* правый контейнер */
 aside {
-    //width: 33%;
+    max-width: 250px;
     float: left;
     margin-bottom: 20px;
     padding: 10px;
