@@ -1,7 +1,3 @@
-<?php
-//defined("CATALOG") or die("Access denied");
-require_once('create_body.php');
-?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>

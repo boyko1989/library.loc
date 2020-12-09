@@ -2,8 +2,24 @@
 include 'main_controller.php';
 include "models/articles_model.php";
 include "models/{$view}_model.php";
-$articles_alias = 
+
 $options = get_option_theme();
+
+$url_art = $_SERVER['REQUEST_URI'];
+$url_art = array_reverse(explode('/', $url_art));
+$url_art = $url_art[0];
+if ($url_art !== "") {    
+    $res = get_article_for_edit($url_art);
+}
+
+if(isset($res)){
+    @$title = $res['title'];
+    @$parent = $res['parent'];
+    @$option = $res['option'];
+} else {
+    @$option = $options;
+}
+
 include "views/{$view}.php";
 
 if (isset($_POST['submit'])) {
@@ -16,25 +32,11 @@ if (isset($_POST['submit'])) {
         "theme" => $theme_title,
         "partheme" => $theme_parent,
         "txt" => $content_articles,
-        "name_articles" => $name_articles,
-        "theme_id" => $theme_id,
+        "name_articles" => $name_articles,        
         "article_alias" => $article_alias
     ];
-    //echo $_SESSION['theme_id'].'<br>';
-insert_content($theme_title, $theme_parent, $content_articles, $name_articles,$article_alias);
-die;
-//sleep(2);
-//header("Location: ".PATH."articles/".$article_alias."");
+$theme_id = insert_content($theme_title, $theme_parent, $content_articles, $name_articles,$article_alias);
+$_SESSION['theme_id'] = $theme_id;
+header("Location: ".PATH."articles/".$article_alias."");
 }
-
-if (isset($_SESSION)) {
-    print_arr($_SESSION);
-    $get_one_articles = get_one_articles($_SESSION['article_alias']);
-    print_arr($get_one_articles);
-    if (isset($get_one_articles['articles_alias'])) {
-        $alias_for_editor = $get_one_articles['articles_alias'];
-        echo $alias_for_editor .' - нужный алиас';
-    }
-} else {
-    echo '$articles_alias не найден';
-}
+?>

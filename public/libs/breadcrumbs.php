@@ -1,5 +1,4 @@
-<?php //defined("CATALOG") or die("Access denied");
-
+<?php
 // хлебные крошки
 // return true (array not empty) || return false
 $breadcrumbs_array = breadcrumbs($theme, $id);
@@ -18,5 +17,4 @@ if($breadcrumbs_array){
 }else{
 	$breadcrumbs = "<a href='" .PATH. "'>Главная</a> / Каталог";
 }
-
 ?>
