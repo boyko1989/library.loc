@@ -47,16 +47,21 @@
 
             <textarea name="txt" cols="60" rows="40">
             <?php 
-            $url_art = ltrim($_SERVER['REQUEST_URI'], '/');
-            echo $url_art.'<br>';
-            //get_one_articles($url_art);
-            
-            if (isset($alias_for_editor)) {
-              echo '<br>'.$alias_for_editor. ' - ЭЛИАС СТАТЬИ';
-            } else {
-              echo 'Ну не нашёл я алиас';
-            }
-            
+            $url_art = $_SERVER['REQUEST_URI'];
+$url_art = array_reverse(explode('/', $url_art));
+
+//print_arr($url_art);
+$url_art = $url_art[0];
+//echo $url_art;
+            if ($url_art !== "") {
+		$query = "SELECT `content` FROM `articles` WHERE `alias`='$url_art';";
+		$res = mysqli_query($connection, $query);
+		$res = mysqli_fetch_assoc($res);
+//echo $query;
+//print_r($res);
+echo $res['content'];
+
+		}
             ?>            
             </textarea><br><br>
             

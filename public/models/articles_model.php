@@ -6,6 +6,7 @@ function get_one_articles($articles_alias){
 	$res = mysqli_query($connection, $query);
 	$res = mysqli_fetch_assoc($res);
 	$res += ['articles_alias' => $articles_alias];
+	echo $GLOBALS[$var];
 	return $res;
 }
 ?>
