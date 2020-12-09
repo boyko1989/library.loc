@@ -43,9 +43,6 @@ function theme_to_template($theme){
 	return ob_get_clean();
 }
 
-/**
-* Постраничная навигация
-**/
 function pagination($page, $count_pages, $modrew = true){
 	// << < 3 4 5 6 7 > >>
 	$back = null; // ссылка НАЗАД
@@ -104,9 +101,6 @@ function pagination($page, $count_pages, $modrew = true){
 	return $startpage.$back.$page2left.$page1left.'<a class="nav-active">'.$page.'</a>'.$page1right.$page2right.$forward.$endpage;
 }
 
-/**
-* Хлебные крошки
-**/
 function breadcrumbs($array, $id){
 	if(!$id) return false;
 

@@ -45,7 +45,20 @@
                 <?php echo $options; ?>
             </select><br><br>
 
-            <textarea name="txt" cols="60" rows="40"></textarea></textarea><br><br>
+            <textarea name="txt" cols="60" rows="40">
+            <?php 
+            $url_art = ltrim($_SERVER['REQUEST_URI'], '/');
+            echo $url_art.'<br>';
+            //get_one_articles($url_art);
+            
+            if (isset($alias_for_editor)) {
+              echo '<br>'.$alias_for_editor. ' - ЭЛИАС СТАТЬИ';
+            } else {
+              echo 'Ну не нашёл я алиас';
+            }
+            
+            ?>            
+            </textarea><br><br>
             
             <p><b>Алиас:</b> 
             <input type="text" name="alias"><br><br></p>

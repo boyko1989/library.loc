@@ -1,4 +1,4 @@
-<?php //defined("CATALOG") or die("Access denied"); ?>
+<?php session_start() ?>
 <!DOCTYPE html>
 <html lang="ru">
 <head>
@@ -32,27 +32,24 @@
     </nav>
 </header>
 <body>
-	<!-- <a href="<?=PATH?>">Главная</a> -->
-	<!-- <div class="wrapper">
-		<div class="sidebar">
-			<?php //include 'sidebar.php'; ?>
-		</div> -->
+	
 	<div class="container">
 		<?php include 'sidebar.php'; ?>
 		<div class="posts-list"> 
 			<article  class="post">
 				<div class="post-content">
 					<p><?=$breadcrumbs;?></p><br><hr>
-				<?php if($get_one_articles): ?>
-				<?php 
-					//print_arr($get_one_articles);
+				<?php if($get_one_articles){
+					if (isset($get_one_articles['articles_alias'])) {
+						echo '<br>'.$get_one_articles['articles_alias'];
+						print_arr($_SESSION);
+					}
 					echo '<br><h1>'.$get_one_articles['title'].'</h1>';
 					echo '<br>'.$get_one_articles['content'];
-				?>
 
-				<?php else: ?>
-					Статьи не существует
-				<?php endif; ?>				
+				} else {
+					echo 'Статьи не существует';
+				} ?>				
 				</div>
 			</article>
 		</div>

@@ -1,5 +1,5 @@
 <?php
-error_reporting(E_ALL);
+//error_reporting(E_ALL);
 
 $routes = array(
 	array('url' => '#^$|^\?#', 'view' => 'theme'),
@@ -29,12 +29,3 @@ extract($match);
 // $product_alias - alias продукта
 // $view - вид для подключения
 include "controllers/{$view}_controller.php";
-
-
-
-
-
-
-
-
-
