@@ -10,9 +10,6 @@
 				<div class="post-content">
 					<p><?=$breadcrumbs;?></p><br><hr>
 						<?php if($get_one_articles){
-							if (isset($get_one_articles['articles_alias'])) {
-								echo '<br>'.$get_one_articles['articles_alias'];//print_arr($_SESSION);
-							}
 							echo '<br><h1>'.$get_one_articles['title'].'</h1>';
 							echo '<br>'.$get_one_articles['content'];
 						} else {

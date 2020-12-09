@@ -21,19 +21,14 @@
             </select><br><br>
 
             <textarea name="txt" cols="60" rows="40">
-            <?php 
-              if(isset($res)){
-                echo $res['content'];
-              }
-              ?>            
+            <?php echo $content;?>            
             </textarea><br><br>
             
             <p><b>Алиас:</b> 
-            <input type="text" name="alias"><br><br></p>
-
+            <input type="text" name="alias" value="<?php echo $url_art;?>"><br><br></p>
+            <input type="hidden" name="article_id" value="<?php echo $id ;?>">
             <input type="submit" name="submit" value="Сохранить">
-        </form>            
-        
+        </form> 
     </div>
 </body>
 </html>
