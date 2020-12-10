@@ -1,5 +1,7 @@
-CREATE TABLE `library`.`articles` ( `id_articles` INT UNSIGNED NOT NULL AUTO_INCREMENT , `name_articles` VARCHAR(128) NOT NULL , `link_articles` VARCHAR(255) NOT NULL , `content_articles` MEDIUMTEXT NOT NULL , PRIMARY KEY (`id_articles`)) ENGINE = MyISAM;
-
+CREATE TABLE `library`.`articles` ( `id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL ,`parent` INT UNSIGNED NOT NULL, `alias` VARCHAR(255) NOT NULL , `content` MEDIUMTEXT NOT NULL, `image` VARCHAR(255) NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;
+CREATE TABLE `library`.`theme` ( `id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `title` VARCHAR(255) NOT NULL , `parent` INT UNSIGNED NOT NULL , PRIMARY KEY (`id`)) ENGINE = InnoDB;
+INSERT INTO `theme` (`id`, `title`, `parent`) VALUES (NULL, 'Корень', 0);
+INSERT INTO `articles` (`id`, `title`, `parent`, `alias`, `content`, `image`) VALUES(NULL, 'Начальная статья', 1, 'erst', '<h1>Приветствуем в системе!</h1><p>Это первая статья в Вашей библиотеке</p>', 'hello.jpg');
 /*---------------------------*/
 
 CREATE TABLE `library`.`editor` ( `id` SMALLINT(5) UNSIGNED NOT NULL AUTO_INCREMENT , `text` TEXT NOT NULL , PRIMARY KEY (`id`)) ENGINE = MyISAM;
@@ -11,10 +13,6 @@ ALTER TABLE `editor` ADD `theme` VARCHAR(255) NOT NULL AFTER `text`;
 /*---------------------------*/
 
 ALTER TABLE `editor` ADD `partheme` VARCHAR(255) NOT NULL AFTER `theme`;
-
-/*---------------------------*/
-
-CREATE TABLE `library`.`theme` ( `theme_id` INT UNSIGNED NOT NULL AUTO_INCREMENT , `theme_title` VARCHAR(255) NOT NULL , `theme_parent` INT UNSIGNED NOT NULL , PRIMARY KEY (`theme_id`)) ENGINE = InnoDB;
 
 /*---------------------------*/
 
