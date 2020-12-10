@@ -10,6 +10,7 @@
     <?php
         if (isset($get_one_articles['articles_alias'])) {
             echo '<a href="'.PATH.'editor/'.$get_one_articles['articles_alias'].'" class="widget-title">Редактировать</a><br><br><br><br> ';
-        }
+      echo '<a href="'.PATH.'editor/'.$get_one_articles['articles_alias'].'/delete" class="widget-title">Удалить</a>';
+ }
     ?>
 </aside>

@@ -31,7 +31,11 @@ if ($url_art == "") {
                     $article_alias,//алиас
                     $parent_theme_id); 
     require_once('views/editor.php');
-}else {
+} else if ($url_art == "delete"){
+	$data = get_data($_POST);
+	delete_article($article_alias);
+	require_once('views/editor.php');
+}	else {
     $arr_values = get_article_for_edit($url_art);
     $action = 'update';
     extract($arr_values); 

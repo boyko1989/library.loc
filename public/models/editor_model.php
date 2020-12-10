@@ -160,4 +160,9 @@ function insert_content($parent, // название темы статьи
     
     return $theme_id;
 }
+
+function delete_article($article_alias) {
+	$query_delete_article = "DELETE FROM `articles` WHERE `alias` = '$article_alias';";
+	$res_delete_article = mysqli_query($connection, $query_delete_article);
+}
 ?>
