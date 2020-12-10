@@ -1,10 +1,11 @@
-<?php session_start();
+<?php // session_start();
 include 'main_controller.php';
 include "models/articles_model.php";
 include "models/{$view}_model.php";
-// формируем список родительских тем
-$options = get_option_theme();
-extract($_POST);
+
+extract($_POST); // на правильном ли месте стоит эта фуккция
+
+
 // если нам нужно отредактировать статью, это будет ясно по наличию алиаса после адреса http://<домен>/editor/
 
 $url_art = $_SERVER['REQUEST_URI'];  // определяем URI
@@ -14,17 +15,30 @@ $url_art = is_alias($url_art);
         // значит нужно загрузить статью в форму и после редактирования - обновить 
         $arr_values = get_article_for_edit($url_art);
         extract($arr_values); 
+        // $theme_id - номер темы статьи
+        // $parent_theme_id - номер родительской темы теме статьи 
         // $content - содержание статьи, FROM `articles`
         // $title - название статьи, FROM `articles`
         // $parent - название темы статьи, FROM `theme` $res_theme ['title'] 
         // $id - номер статьи, FROM `articles`
         // $option - родительская тема теме статьи (идёт единственным опшеном в селект) 
         
-        // update_content($theme_title, $name_articles,  $content_articles, $theme_parent, $article_id);
+        update_content( $parent,            // название темы статьи
+                        $title,             // название статьи
+                        $content,           // содержание статьи
+                        $parent_theme_id,   // номер темы темы статьи
+                        $theme_id,          // номер темы статьи
+                        $id);               // номер статьи  
     } else {
         $is_alias = false;
-        // require_once('views/editor.php');
+
+        $options = get_option_theme();      // формируем список родительских тем
+        
+        require_once('views/editor.php');
         // значит полученное из массива $_POST заносим в БД в новую строку
+        insert_content(
+
+        );
         // insert_content($theme_title, $theme_parent, $content_articles, $name_articles, $article_alias);
         // $_SESSION['theme_id'] = $theme_id;
     }

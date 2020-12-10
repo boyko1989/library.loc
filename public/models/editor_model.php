@@ -21,6 +21,9 @@ function is_alias($url_art) {
 
 function get_article_for_edit($url_art){
     global $connection;   
+
+    # сначала нужно проверить есть ли тема, которая попала из $_POST['theme']
+
     $query_article = "SELECT `content`, `title`, `parent`, `id` FROM `articles` WHERE `alias`='$url_art';";    
     $res_article = mysqli_query($connection, $query_article);
     $res_article = mysqli_fetch_assoc($res_article);
@@ -55,35 +58,57 @@ function get_article_for_edit($url_art){
 
     $option = '<option>'. $res_parent_theme['title'] .'</option>';
 
-    $arr_values['content'] = $res_article ['content'];  //  - содержание статьи,
-    $arr_values['title'] = $res_article ['title'];      //  - название стаьи, 
-    $arr_values['parent'] = $res_theme['title'];        //  - название темы статьи,
-    $arr_values['id'] = $res_article['id'];             //  - номер статьи,
-    $arr_values['option'] = $option;                    //  - родительская тема теме статьи (идёт единственным опшеном в селект)          
+    $arr_values['theme_id'] = $res_article['parent'];           //  - номер темы статьи
+    $arr_values['parent_theme_id'] = $res_theme['parent'];      //  - номер темы темы статьи 
+    $arr_values['content'] = $res_article ['content'];          //  - содержание статьи,
+    $arr_values['title'] = $res_article ['title'];              //  - название стаьи, 
+    $arr_values['parent'] = $res_theme['title'];                //  - название темы статьи,
+    $arr_values['id'] = $res_article['id'];                     //  - номер статьи,
+    $arr_values['option'] = $option;                            //  - родительская тема теме статьи (идёт единственным опшеном в селект)          
     return $arr_values;
 }
-/*
-function update_content($theme_title, $name_articles,  $content_articles, $theme_parent, $article_id) {
+
+function update_content($parent,            // название темы статьи
+                        $title,             // название статьи
+                        $content,           // содержание статьи
+                        $parent_theme_id,   // номер темы темы статьи
+                        $theme_id,          // номер темы статьи
+                        $id) {              // номер статьи  
     global $connection;
 
-    $query_check = "SELECT `id`, `parent` FROM `theme` WHERE `title`='$theme_title'";  
-    $res_check = mysqli_query($connection, $query_check);
-    $rows = mysqli_num_rows($res_check);
-        if ($rows == 0){
-            $query = "INSERT INTO `theme`(`id`, `title`, `parent`) VALUES (NULL, '$theme_title', $theme_parent)";
-            $res = mysqli_query($connection, $query);            
-        } 
-        $query_theme_id = "SELECT `id` FROM `theme` WHERE `title`='$theme_title'"; // сократить условием
-        $res_theme_id = mysqli_query($connection, $query_theme_id);
-        $res_theme_id = mysqli_fetch_all($res_theme_id, MYSQLI_ASSOC);    
-        $theme_id = $res_theme_id[0]['id'];
+    # сначала нужно проверить есть ли тема, которая попала из $parent
+        // проверка нужна потому что возможно теме нужно поменять название, тогда используем UPDATE
+        // либо мы создали новую тему, для нашей имеющейся статьи, тогда используем INSERT
 
-            $res= mysqli_fetch_all($res_check, MYSQLI_ASSOC);
-            print_arr($res);
-            echo $theme_id = $res['id'];
+        // ВАЖНО: $theme_id - 
+
+    $query_select_theme = "SELECT `id`, `parent` FROM `theme` WHERE `title`='$title';";  
+    $res_select_theme = mysqli_query($connection, $query_select_theme);
+    $rows_theme = mysqli_num_rows($res_select_theme);
+
+        if ($rows_theme == 0){
+            $query_insert_theme = "INSERT INTO `theme`(`id`, `title`, `parent`) VALUES (NULL, '$parent', $parent_theme_id);";
+            $res_insert_theme = mysqli_query($connection, $query_insert_theme);  
+
+                // получаем номер новой темы
+
+            $query_select_id_theme = "SELECT `id` FROM `theme` WHERE `title`='$parent';"; 
+            $res_select_id_theme = mysqli_query($connection, $query_select_id_theme);     
+            $res_select_id_theme = mysqli_fetch_assoc($res_select_id_theme);
+            $theme_id = $res_select_id_theme['id'];
+
+        } else {
+            $query_update_theme = "UPDATE `theme` SET `title`='$parent' WHERE `theme`.`id`='$theme_id';";
+            $res_update_theme = mysqli_query($connection, $query_update_theme); 
         }
-    $query_article = "UPDATE `articles` SET `parent`='$theme_id',`title`='$name_articles',`content`='$content_articles' WHERE `articles`.`id` = '$article_id';";
 
+    # теперь обновляем таблицу статей
+        
+    $query_update_article = "UPDATE `articles` SET `parent`='$theme_id',`title`='$title',`content`='$content' WHERE `articles`.`id` = '$id';";
+    $res_update_article = mysqli_query($connection, $query_update_article); 
+
+}
+/*
 function insert_content($theme_title, $theme_parent, $content_articles, $name_articles, $article_alias) {
     global $connection;
         // проверяем есть ли тема, которую будет освещать статья
