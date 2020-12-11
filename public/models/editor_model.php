@@ -162,6 +162,7 @@ function insert_content($parent, // название темы статьи
 }
 
 function delete_article($article_alias) {
+    global $connection;
 	$query_delete_article = "DELETE FROM `articles` WHERE `alias` = '$article_alias';";
 	$res_delete_article = mysqli_query($connection, $query_delete_article);
 }

@@ -32,7 +32,9 @@ if ($url_art == "") {
                     $parent_theme_id); 
     require_once('views/editor.php');
 } else if ($url_art == "delete"){
-	$data = get_data($_POST);
+    $article_alias = $_SERVER['REQUEST_URI'];
+    $article_alias = array_reverse(explode('/', $article_alias));
+    $article_alias = $article_alias[1];    
 	delete_article($article_alias);
 	require_once('views/editor.php');
 }	else {
