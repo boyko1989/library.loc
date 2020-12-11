@@ -43,20 +43,6 @@ function theme_to_template($theme){
 	return ob_get_clean();
 }
 
-function theme_to_string_without_links($data){
-	$string_without_links = null;
-	foreach($data as $item){
-		$string_without_links .= theme_to_template_without_links($item);
-	}
-	return $string_without_links;
-}
-
-function theme_to_template_without_links($theme){
-	ob_start();
-	include 'views/theme_template_without_links.php';
-	return ob_get_clean();
-}
-
 function pagination($page, $count_pages, $modrew = true){
 	// << < 3 4 5 6 7 > >>
 	$back = null; // ссылка НАЗАД

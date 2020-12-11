@@ -59,10 +59,6 @@ ul{
     transition: .5s ease-in-out; /* добавим плавность переходов для всех элементов страницы*/
 }
 
-#attention {
-    color: #EF5A42;
-}
-
 ul {
     list-style: none;
 }
@@ -386,16 +382,6 @@ aside {
     border: 1px solid rgb(24, 59, 1);
     border-radius: 10px;
     /*box-shadow: 3px 3px 0 0 #F8B763;*/
-}
-.widget-title-red {
-    color: #EF5A42;
-    font-size: 18px;
-    margin: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
-    text-align: center;
-    border: 1px solid #EF5A42;
-    border-radius: 10px;
 }
 
 .widget-category-list li {

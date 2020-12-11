@@ -7,8 +7,7 @@ $routes = array(
 	array('url' => '#^theme/(?P<id>\d+)#i', 'view' => 'theme'),
 	array('url' => '#^editor/#i', 'view' =>'editor'),
 	array('url' => '#^editor/(?P<articles_alias>[a-z0-9-]+)#i', 'view' =>'editor'),
-	array('url' => '#^themeditor/#i', 'view' =>'themeditor')
-	//,array('url' => '#^themeditor/(?P<id>\d+)#i', 'view' =>'themeditor')
+	//array('url' => '#^update_controller.php#i', 'view' =>'update'),
 );
 
 // $url = str_replace('/catalog/', '', $_SERVER['REQUEST_URI']);

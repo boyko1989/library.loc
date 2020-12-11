@@ -1,6 +1,6 @@
 <?php 
-require_once('../config.php');
-require_once('models/main_model.php');
+include '../config.php';
+include 'models/main_model.php';
 
 $theme = get_theme();
 $theme_tree = map_tree($theme);
