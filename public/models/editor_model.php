@@ -119,6 +119,11 @@ function update_content($parent,            // название темы ста�
     $res_update_article = mysqli_query($connection, $query_update_article); 
 }
 
+function create_alias() {
+    $article_alias = date("Y-m-d-H-i-s");
+    return $article_alias;
+}
+
 function insert_content($parent, // название темы статьи
                         $title, // название статьи
                         $content, // содержание статьи

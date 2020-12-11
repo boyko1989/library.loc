@@ -30,8 +30,8 @@
               if (isset($content)) echo $content;?>            
             </textarea><br><br>
             
-            <p><b>Алиас:</b> 
-            <input type="text" name="alias" value="<?php if (isset($url_art)) echo $url_art;?>"><br><br></p>
+            <!-- <p><b>Алиас:</b> 
+            <input type="text" name="alias" value="<?php// if (isset($url_art)) echo $url_art;?>"><br><br></p> -->
             <input type="hidden" name="article_id" value="<?php if (isset($id)) echo $id ;?>">
             <!-- <input type="hidden" name="parent_theme_id" value="<?php //if (isset($parent_theme_id)) echo $parent_theme_id ;?>"> -->
             <input type="hidden" name="theme_id" value="<?php if (isset($theme_id)) echo $theme_id ;?>">
