@@ -12,8 +12,9 @@
         <button type="submit"><i class="fa fa-search"></i></button>
         </form>
         <ul id="menu">
-        <li><a href="view/html/example.php">Файл примера</a></li> 
-        <li><a href="view/html/exp.php">WYSIWIG</a></li> 
+        <!-- <li><a href="<?=PATH?>public/controllers/themeditor_controller.php">Редактор тем</a></li>  -->
+        <li><a href="<?php echo PATH; ?>themeditor/">Редактор тем</a></li> 
+        <!-- <li><a href="view/html/exp.php">WYSIWIG</a></li>  -->
         </ul>
     </nav>
 </header>
