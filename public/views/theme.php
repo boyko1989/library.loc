@@ -42,5 +42,11 @@
 			});
 		});
 	</script>
+	<script>
+$('.nav-toggle').on('click', function(){
+$('#menu').toggleClass('active');
+});
+</script>
 </body>
 </html>
+<?php //require_once('html/footer.php');?>

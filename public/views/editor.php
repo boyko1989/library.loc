@@ -5,6 +5,18 @@
 <body>
     <div class="content">
         <a href="/">На главную</a><br><br>
+
+        <?php if(isset($delete_message)):?>         
+          
+          <form action="<?=$action?>" method="post">
+          <p id="attention"><b><?=$delete_message?></b></p><br><br><br>
+          <p>
+            <a href="<?echo PATH;?>articles/<?=$article_alias?>" class="widget-title-red">НЕТ</a>
+            <a href="true-delete" class="widget-title">ДА</a>
+          </p>
+          </form> 
+
+        <? else: ?> 
         
         <form action="<?=$action?>" method="post">
             <p><b>Название:</b> 
@@ -38,5 +50,8 @@
             <input type="submit" name="submit" value="Сохранить">
         </form> 
     </div>
-</body>
+    </body>
+    <? endif; ?>
+  
+  <?php //require_once('html/footer.php');?>
 </html>
