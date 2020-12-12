@@ -1,3 +1,4 @@
+<?php //defined("CATALOG") or die("Access denied"); ?>
 <li>
 	<a href="<?=PATH?>theme/<?=$theme['id']?>"><?=$theme['title']?></a>
 	<?php if( isset($theme['childs']) && $theme['childs'] ): ?>

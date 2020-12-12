@@ -42,7 +42,6 @@ header("Location: ".PATH."articles/".$article_alias."");
     require_once('views/editor.php'); 
 
 } else if ($url_art == "true-delete"){ 
-    //if 
     $article_alias = $_SERVER['REQUEST_URI'];
     $article_alias = array_reverse(explode('/', $article_alias));
     $article_alias = $article_alias[1];    
@@ -57,8 +56,3 @@ header("Location: ".PATH."articles/".$article_alias."");
     die;
 }
 ?><? ob_flush(); ?>
-
-
-
-
-
