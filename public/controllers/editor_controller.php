@@ -1,4 +1,4 @@
-<?php //session_start();
+<? ob_start(); ?><?php 
 include 'main_controller.php';
 include "models/articles_model.php";
 include "models/{$view}_model.php";
@@ -15,11 +15,11 @@ if ($url_art == "") {
     $update_data = get_data($_POST);
     extract($update_data);
     update_content($parent,             // название темы статьи
-                $title,             // название статьи
-                $content,           // содержание статьи
-                $parent_theme_id,   // номер темы темы статьи
-                $theme_id,          // номер темы статьи
-                $id);               // номер статьи
+                    $title,             // название статьи
+                    $content,           // содержание статьи
+                    $parent_theme_id,   // номер темы темы статьи
+                    $theme_id,          // номер темы статьи
+                    $id);               // номер статьи
    header("Location: ".PATH."articles/".$article_alias."");
     die; 
 
@@ -37,19 +37,22 @@ header("Location: ".PATH."articles/".$article_alias."");
 } else if ($url_art == "delete"){
     $article_alias = $_SERVER['REQUEST_URI'];
     $article_alias = array_reverse(explode('/', $article_alias));
+    $article_alias = $article_alias[1]; 
+    $delete_message = 'Вы уверены, что хотите удалить статью?';
+    require_once('views/editor.php'); 
+
+} else if ($url_art == "true-delete"){ 
+    $article_alias = $_SERVER['REQUEST_URI'];
+    $article_alias = array_reverse(explode('/', $article_alias));
     $article_alias = $article_alias[1];    
 	delete_article($article_alias);
-    require_once('views/editor.php');
+    header("Location: ".PATH."");
     
-}	else {
+} else {
     $arr_values = get_article_for_edit($url_art);
     $action = 'update';
     extract($arr_values); 
     require_once('views/editor.php');
     die;
 }
-
-
-
-
-
+?><? ob_flush(); ?>
