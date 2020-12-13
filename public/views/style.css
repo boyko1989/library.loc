@@ -3,6 +3,10 @@
 	width: 980px;
 	margin: auto;
 }
+
+ul {
+padding-left: 30px;
+}
 .sidebar{
 	float: left;
 	max-width: 300px;
@@ -11,9 +15,7 @@
 	float: left;
 	width: 680px;
 }
-ul{
-	list-style: none;
-}
+
 .theme ul{
 	padding-left: 20px;
 }
@@ -61,10 +63,6 @@ ul{
 
 #attention {
     color: #EF5A42;
-}
-
-ul {
-    list-style: none;
 }
 
 a {

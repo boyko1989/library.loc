@@ -51,4 +51,10 @@
     </div>
     </body>
     <? endif; ?>
+<script>
+$('.nav-toggle').on('click', function(){
+$('#menu').toggleClass('active');
+});
+
+</script>
 </html>

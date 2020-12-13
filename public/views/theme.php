@@ -41,6 +41,11 @@
 				window.location = location.href;
 			});
 		});
+
+$('.nav-toggle').on('click', function(){
+$('#menu').toggleClass('active');
+});
+
 	</script>
 </body>
 </html>

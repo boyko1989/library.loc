@@ -27,6 +27,11 @@
 		//$(".theme").dcAccordion();
 		$(".widget-category-list").dcAccordion();
 	});
+
+$('.nav-toggle').on('click', function(){
+$('#menu').toggleClass('active');
+});
+
 </script>
 </body>
 </html>
