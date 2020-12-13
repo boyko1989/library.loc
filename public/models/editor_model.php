@@ -2,13 +2,13 @@
 
 function get_data($arr) {
     extract($arr);
-    $data['parent'] = $arr['theme'];             // название темы статьи
-    $data['title'] = $arr['name_articles'];             // название статьи
-    $data['content'] = $arr['txt'] ;          // содержание статьи
-    $data['parent_theme_id'] = $arr['parent_theme_id'] ;  // номер темы темы статьи
-    $data['theme_id'] = $arr['theme_id'];          // номер темы статьи
-    $data['id'] = $arr['article_id'] ; 
-    $data['article_alias'] = $arr['alias'];
+    $data['parent'] = $arr['theme'];                        // название темы статьи
+    $data['title'] = $arr['name_articles'];                 // название статьи
+    $data['content'] = $arr['txt'] ;                        // содержание статьи
+    $data['parent_theme_id'] = $arr['parent_theme_id'] ;    // номер темы темы статьи
+    $data['theme_id'] = $arr['theme_id'];                   // номер темы статьи
+    $data['id'] = $arr['article_id'] ;                      // номер статьи
+    $data['article_alias'] = $arr['alias'];                 // алиас
     return $data;
 }
 
@@ -25,7 +25,7 @@ function get_option_theme() {
 }
 
 function is_alias($url_art) {  
-    $url_art = $_SERVER['REQUEST_URI'];  // определяем URI                      
+    $url_art = $_SERVER['REQUEST_URI'];                     // определяем URI                      
     $url_art = array_reverse(explode('/', $url_art));       // создаём массив, из которого возьмём алиас статьи 
     $url_art = $url_art[0];                                 // берём наш алиас 
     return $url_art;
@@ -70,6 +70,7 @@ function get_article_for_edit($url_art){
 
     $option = '<option>'. $res_parent_theme['title'] .'</option>';
 
+    $arr_values['alias'] = $url_art;                            //  - алиас
     $arr_values['theme_id'] = $res_article['parent'];           //  - номер темы статьи
     $arr_values['parent_theme_id'] = $res_theme['parent'];      //  - номер темы темы статьи 
     $arr_values['content'] = $res_article ['content'];          //  - содержание статьи,
@@ -117,6 +118,7 @@ function update_content($parent,            // название темы ста�
         
     $query_update_article = "UPDATE `articles` SET `parent`='$theme_id',`title`='$title',`content`='$content' WHERE `articles`.`id` = '$id';";
     $res_update_article = mysqli_query($connection, $query_update_article); 
+    return $article_alias;
 }
 
 function create_alias() {

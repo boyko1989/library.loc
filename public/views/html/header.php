@@ -12,11 +12,7 @@
         <button type="submit"><i class="fa fa-search"></i></button>
         </form>
         <ul id="menu">
-<<<<<<< HEAD
             <li><a href="<?php echo PATH; ?>themeditor/">Редактор тем</a></li>
-=======
-        <li><a href="<?php echo PATH; ?>themeditor/">Редактор тем</a></li>  
->>>>>>> 5d213ee812d417c57f2633d45f339c02497055a9
         </ul>
     </nav>
 </header>

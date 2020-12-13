@@ -4,54 +4,51 @@
   require_once('models/editor_model.php');?>
 <body>
     <div class="content">
-        <a href="/">На главную</a><br><br>
+    <?php if (isset($update_data)) echo $update_data;?>
+      <a href="/">На главную</a><br><br>
 
         <?php if(isset($delete_message)):?>         
           
-          <form action="<?=$action?>" method="post">
+        <form action="<?=$action?>" method="post">
           <p id="attention"><b><?=$delete_message?></b></p><br><br><br>
           <p>
             <a href="<?echo PATH;?>articles/<?=$article_alias?>" class="widget-title-red">НЕТ</a>
             <a href="true-delete" class="widget-title">ДА</a>
           </p>
-          </form> 
+        </form> 
 
         <? else: ?> 
         
         <form action="<?=$action?>" method="post">
-            <p><b>Название:</b> 
-            <input type="text" name="name_articles" value="<?php if (isset($title)) echo $title;?>" size="80">
-            <br><br></p>
+          <p><b>Название:</b> 
+          <input type="text" name="name_articles" value="<?php if (isset($title)) echo $title;?>" size="80">
+          <br><br></p>
 
-            <p><b>Тема статьи:</b> 
-            <input type="text" name="theme" value="<?php if (isset($parent)) echo $parent;?>" size="80">
+          <p><b>Тема статьи:</b> 
+          <input type="text" name="theme" value="<?php if (isset($parent)) echo $parent;?>" size="80">
             
-              <br><br></p>
+          <br><br></p>
 
-            <p><b>Родительская тема:</b>
-            <select size="1" name="parent_theme_id">
-                <?php if (isset($option)) { 
-                  echo $option;
-                } else {
-                  echo $options;
-                }?>
-            </select><br><br>
+        <p><b>Родительская тема:</b>
+        <select size="1" name="parent_theme_id">
+          <?php if (isset($option)) { 
+            echo $option;
+          } else {
+            echo $options;
+          }?>
+        </select><br><br>
 
-            <textarea name="txt" cols="60" rows="40">
-            <?php             
-              if (isset($content)) echo $content;?>            
-            </textarea><br><br>
-            
-            <!-- <p><b>Алиас:</b> 
-            <input type="text" name="alias" value="<?php// if (isset($url_art)) echo $url_art;?>"><br><br></p> -->
-            <input type="hidden" name="article_id" value="<?php if (isset($id)) echo $id ;?>">
-            <!-- <input type="hidden" name="parent_theme_id" value="<?php //if (isset($parent_theme_id)) echo $parent_theme_id ;?>"> -->
-            <input type="hidden" name="theme_id" value="<?php if (isset($theme_id)) echo $theme_id ;?>">
-            <input type="submit" name="submit" value="Сохранить">
-        </form> 
+        <textarea name="txt" cols="60" rows="40">
+        <?php             
+          if (isset($content)) echo $content;?>            
+        </textarea><br><br>            
+           
+        <input type="hidden" name="article_id" value="<?php if (isset($id)) echo $id ;?>">
+        <input type="hidden" name="theme_id" value="<?php if (isset($theme_id)) echo $theme_id ;?>">
+        <input type="hidden" name="alias" value="<?php if (isset($alias)) echo $alias ;?>">
+        <input type="submit" name="submit" value="Сохранить">
+      </form> 
     </div>
     </body>
     <? endif; ?>
-  
-  <?php //require_once('html/footer.php');?>
 </html>

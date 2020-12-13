@@ -12,25 +12,28 @@ if ($url_art == "") {
     die;
 
 } else if ($url_art == "update") {
+    
     $update_data = get_data($_POST);
-    extract($update_data);
+    extract($update_data);    
+    
     update_content($parent,             // название темы статьи
                     $title,             // название статьи
                     $content,           // содержание статьи
                     $parent_theme_id,   // номер темы темы статьи
                     $theme_id,          // номер темы статьи
                     $id);               // номер статьи
-   header("Location: ".PATH."articles/".$article_alias."");
+
+    header("Location: ".PATH."articles/".$article_alias."");
     die; 
 
 } else if ($url_art == "create"){
     $insert_data = get_data($_POST);
     extract($insert_data);
     $article_alias = create_alias();
-    insert_content($parent, // название темы статьи
-                    $title, // название статьи
-                    $content, //содержание статьи
-                    $article_alias,//алиас
+    insert_content($parent,             // название темы статьи
+                    $title,             // название статьи
+                    $content,           //содержание статьи
+                    $article_alias,     //алиас
                     $parent_theme_id); 
 header("Location: ".PATH."articles/".$article_alias."");
     
