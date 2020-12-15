@@ -63,7 +63,8 @@ $dtab = $tab.$tab;
             <option value="ID темы"><?=$tab?>Кулинария</option>
         </select>
         <a href="#" class="delete-bottom">Удалить</a>
-        <input type="submit" class="save-bottom" value="Сохранить">
+        <input type="submit" class="save-bottom-submit" value="Сохранить">
+        <hr>
     </form>
 
     <form action="#" method="POST">
@@ -258,7 +259,7 @@ $dtab = $tab.$tab;
             font-size: 16px;
             width: 400px;
             padding: 15px;
-            background-color: rgb(147, 224, 213);
+            background-color: rgb(247, 243, 243);
             border: none;
             outline: none;
         }
@@ -269,7 +270,7 @@ $dtab = $tab.$tab;
             padding: 14px;
             border: none;
             outline: none;
-            background-color: rgb(147, 224, 213);
+            background-color: rgb(247, 243, 243);
             color: black; 
         }    
         .delete-bottom {
@@ -277,7 +278,6 @@ $dtab = $tab.$tab;
             color: white;
             background-color: rgb(252, 104, 104);
             padding: 15px;
-            border: black solid 1px;
         }
         .delete-bottom-td {
            
@@ -288,12 +288,19 @@ $dtab = $tab.$tab;
             color: white;
             background-color: rgb(104, 163, 252);
             padding: 15px;            
-            border: black solid 1px;
         }
         .save-bottom-td {
             /* padding: 0;  */
             text-align: center;
-        }    
+        } 
+
+        .save-bottom-submit {
+            text-decoration: none;
+            color: white;
+            background-color: rgb(104, 163, 252);
+            padding: 15px;
+            text-align: center;
+        }   
         th {
             background: rgb(106, 106, 206); /* Цвет фона ячеек */
             color: white; /* Цвет текста */
