@@ -38,9 +38,8 @@
           }?>
         </select><br><br>
 
-        <textarea id="txt" name="txt" cols="40" rows="30">
-        <?php             
-          if (isset($content)) echo $content;?>            
+        <textarea id="txt" name="txt" cols="60" rows="30">
+          <?php if (isset($content)) echo $content;?>            
         </textarea><br><br>            
            
         <input type="hidden" name="article_id" value="<?php if (isset($id)) echo $id ;?>">
@@ -52,11 +51,19 @@
     </body>
     <? endif; ?>
 <script>
-$('.nav-toggle').on('click', function(){
-$('#menu').toggleClass('active');
-});
+  $('.nav-toggle').on('click', function(){
+  $('#menu').toggleClass('active');
+  });
 
-$("#txt").summernote();
-
+  $("#txt").summernote({
+    lang:'ru-RU',
+    height:300,
+    minHeight:200,
+    maxHeight:400,
+    focus:true,
+    placeholder:'Введите данные',
+    fontNames:['Arial','Times New Roman','Helvetica'],
+    disableDragAndDrop:true
+  });
 </script>
 </html>
