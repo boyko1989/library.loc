@@ -13,7 +13,7 @@
         </form>
         <ul id="menu">
             <li><a href="<?php echo PATH; ?>themeditor/">Редактор тем</a></li>
-<li><a href="http://boyko.sytes.net/themeditor.html">Прототип редактора</a></li>
+<li><a href="http://boyko.sytes.net/themeditorprot.php">Прототип редактора</a></li>
         </ul>
 <script type="text/javascript" src="../js/main.js"></script>
     </nav>
