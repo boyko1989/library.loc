@@ -1,4 +1,3 @@
-$('.nav-toggle').on('click', function(){
-$('#menu').toggleClass('active');
+jQuery(function($){
+$("#txt").summernote();
 });
-

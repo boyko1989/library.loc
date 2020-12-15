@@ -38,7 +38,7 @@
           }?>
         </select><br><br>
 
-        <textarea name="txt" cols="60" rows="40">
+        <textarea id="txt" name="txt" cols="40" rows="30">
         <?php             
           if (isset($content)) echo $content;?>            
         </textarea><br><br>            
@@ -55,6 +55,8 @@
 $('.nav-toggle').on('click', function(){
 $('#menu').toggleClass('active');
 });
+
+$("#txt").summernote();
 
 </script>
 </html>
