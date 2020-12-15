@@ -39,7 +39,8 @@
         </li>	</ul>
         </li>
 
-    <!-- <h2>Список детей</h2> -->
+    <h2>Список потомков</h2>
+				<form></form>
     <h2>Список статей</h2>
     <table border="1">
         <tr>
@@ -49,7 +50,11 @@
             <th class="col4">Сохранить</th>
         </tr>
         <tr>
-            <td>Переохлаждённый туман</td>
+            <td class="title-table">
+									<form>
+											<input type="text" value="Переохлаждённый туман" width="320"> 
+									</form>
+							</td>
             <td class="parent-table">
                 <select>
                     <option>Общая</option>
@@ -154,6 +159,18 @@
         td {
             padding: 10px;
         }
+				.title-table {
+						padding: 0;
+				}
+					.title-table > form > input {
+							font-family: Georgia, serif;
+							font-size: 16px;
+							margin: 10px;
+							padding 15px;
+							background-color: rgb(147, 224, 213);
+							border: none;
+							outline: none;
+					}
         tr {
             background: rgb(147, 224, 213); /* Цвет фона таблицы */
             color: black;            
@@ -199,18 +216,12 @@
         @media all and (max-width: 720px) {
             html {
                 /*transform: rotate(-90deg);*/
-transform: rotate(90deg); 
-transform-origin: bottom left; 
-position: absolute; 
-top: -100vw; 
-left: 0;
-/*
-transform: rotate(-90deg); 
-transform-origin: bottom right; 
-position: absolute; 
-top: 100vw; 
-right: 0;*/
-            }
+									transform: rotate(90deg); 
+										transform-origin: bottom left; 
+										position: absolute; 
+										top: -100vw; 
+										left: 0;
+            			}
             .col1 { 
                 width: 285px; 
             }
