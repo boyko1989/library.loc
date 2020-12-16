@@ -12,9 +12,9 @@
         <button type="submit"><i class="fa fa-search"></i></button>
         </form>
         <ul id="menu">
+<li><a href="<?php echo PATH; ?>register/">Регистрация</a></li>
             <li><a href="<?php echo PATH; ?>themeditor/">Редактор тем</a></li>
 <li><a href="<?php echo PATH; ?>themeditorprot.php">Прототип редактора</a></li>
         </ul>
-<script type="text/javascript" src="../js/main.js"></script>
     </nav>
 </header>
