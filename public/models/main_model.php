@@ -3,9 +3,9 @@ function print_arr($array){
 	echo "<pre>" . print_r($array, true) . "</pre>";
 }
 
-function get_theme(){
+function get_theme($author){
 	global $connection;
-	$query = "SELECT * FROM theme";
+	$query = "SELECT * FROM theme WHERE `author`= $author";
 	$res = mysqli_query($connection, $query);
 
 	$arr_cat = array();

@@ -20,16 +20,19 @@ function get_articles($ids, $start_pos, $perpage){
 	}
 	$res = mysqli_query($connection, $query);
 	$articles = array();
-	while($row = mysqli_fetch_assoc($res)){
-		$articles[] = $row;
+	if (!empty($res)) {
+		while($row = mysqli_fetch_assoc($res)){
+			$articles[] = $row;
+		}
 	}
+	
 	return $articles;
 }
 
-function count_goods($ids){
+function count_goods($ids, $author){
 	global $connection;
 	if( !$ids ){
-		$query = "SELECT COUNT(*) FROM articles";
+		$query = "SELECT COUNT(*) FROM articles WHERE `author` = $author";
 	}else{
 		$query = "SELECT COUNT(*) FROM articles WHERE parent IN($ids)";
 	}

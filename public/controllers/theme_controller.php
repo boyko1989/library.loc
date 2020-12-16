@@ -1,7 +1,7 @@
 <?php
 include 'main_controller.php';
 include "models/{$view}_model.php";
-
+$author = $_SESSION['user']['user_id'];
 if( !isset($id) ) $id = null;
 
 include 'libs/breadcrumbs.php';
@@ -15,7 +15,7 @@ $ids = !$ids ? $id : rtrim($ids, ",");
 $perpage = ( isset($_COOKIE['per_page']) && (int)$_COOKIE['per_page'] ) ? $_COOKIE['per_page'] : PERPAGE;
 
 // общее кол-во товаров
-$count_goods = count_goods($ids);
+$count_goods = count_goods($ids, $author);
 
 // необходимое кол-во страниц
 $count_pages = ceil($count_goods / $perpage);

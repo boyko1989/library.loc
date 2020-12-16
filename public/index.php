@@ -1,5 +1,5 @@
 <?php session_start();
-error_reporting(E_ALL);
+// error_reporting(E_ALL);
 $routes = array(
 	array('url' => '#^$#', 'view' => 'hello'),
 	array('url' => '#^\?#', 'view' => 'theme'),
