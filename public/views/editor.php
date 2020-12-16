@@ -38,7 +38,7 @@
           }?>
         </select><br><br>
 
-        <textarea id="txt" name="txt" cols="60" rows="30">
+        <textarea id="txt" name="txt" cols="80" rows="60">
           <?php if (isset($content)) echo $content;?>            
         </textarea><br><br>            
            
@@ -56,14 +56,27 @@
   });
 
   $("#txt").summernote({
-    lang:'ru-RU',
-    height:300,
-    minHeight:200,
-    maxHeight:400,
-    focus:true,
-    placeholder:'Введите данные',
-    fontNames:['Arial','Times New Roman','Helvetica'],
-    disableDragAndDrop:true
-  });
+		
+		lang:'ru-RU',
+		height:500,
+		minHeight:200,
+		maxHeight:800,
+		focus:true,
+		//placeholder:'Введите данные',
+		toolbar:[
+		//[groupname,[list buttons]]
+			['insert',['picture','link','video','table']],
+			['style',['bold','italic','underline']],
+			['font', ['strikethrough', 'superscript', 'subscript']],
+		    ['fontsize', ['fontsize','fontname']],
+		    ['color', ['color']],
+		    ['para', ['ul', 'ol', 'paragraph','style']],
+		    ['height', ['height','codeview']]
+		
+		]//,
+		//fontNames:['Arial','Times New Roman','Verdana'],
+		//disableDragAndDrop:true
+		
+	});
 </script>
 </html>

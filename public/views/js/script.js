@@ -4,11 +4,11 @@ jQuery(function($) {
 	$("#text").summernote({
 		
 		lang:'ru-RU',
-		height:300,
+		height:500,
 		minHeight:200,
-		maxHeight:400,
+		maxHeight:800,
 		focus:true,
-		placeholder:'Введите данные',
+		//placeholder:'Введите данные',
 		toolbar:[
 		//[groupname,[list buttons]]
 			['insert',['picture','link','video','table']],
@@ -19,15 +19,15 @@ jQuery(function($) {
 		    ['para', ['ul', 'ol', 'paragraph','style']],
 		    ['height', ['height','codeview']]
 		
-		],
-		fontNames:['Arial','Times New Roman','Verdana'],
-		disableDragAndDrop:true
+		]//,
+		//fontNames:['Arial','Times New Roman','Verdana'],
+		//disableDragAndDrop:true
 		
 	});
 
 	
 	
-	$('.btn').click(function(e) {
+	$('.btn1').click(function(e) {
 		e.preventDefault();
 		
 		//alert($("#text").summernote('code'));
