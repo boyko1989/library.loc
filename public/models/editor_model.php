@@ -8,7 +8,8 @@ function get_data($arr) {
     $data['parent_theme_id'] = $arr['parent_theme_id'] ;    // номер темы темы статьи
     $data['theme_id'] = $arr['theme_id'];                   // номер темы статьи
     $data['id'] = $arr['article_id'] ;                      // номер статьи
-    $data['article_alias'] = $arr['alias'];                 // алиас
+    $data['article_alias'] = $arr['alias'];// алиас
+    $data['author'] = $arr['author'];                 
     return $data;
 }
 
@@ -126,10 +127,11 @@ function create_alias() {
     return $article_alias;
 }
 
-function insert_content($parent, // название темы статьи
-                        $title, // название статьи
-                        $content, // содержание статьи
-                        $article_alias,//алиас
+function insert_content($parent,            // название темы статьи
+                        $title,             // название статьи
+                        $content,           // содержание статьи
+                        $article_alias,     // алиас
+                        $author,            // автор
                         $parent_theme_id) { // номер темы темы статьи
     global $connection;
 
@@ -141,7 +143,7 @@ function insert_content($parent, // название темы статьи
 
     if ($rows_theme == 0){
 
-        $query_insert_theme = "INSERT INTO `theme`(`id`, `title`, `parent`) VALUES (NULL, '$parent', $parent_theme_id);";
+        $query_insert_theme = "INSERT INTO `theme`(`id`, `title`, `parent`, `author`) VALUES (NULL, '$parent', $parent_theme_id, $author);";
         $res_insert_theme = mysqli_query($connection, $query_insert_theme);  
 
             // получаем номер новой темы
@@ -162,7 +164,7 @@ function insert_content($parent, // название темы статьи
         $res_update_theme = mysqli_query($connection, $query_update_theme); 
     }
 
-    $query_insert_article = "INSERT INTO `articles`(`id`, `parent`, `title`, `content`, `alias`, `image`) VALUES (NULL, '$theme_id', '$title', '$content', '$article_alias', 'empty_thumb.jpg');";
+    $query_insert_article = "INSERT INTO `articles`(`id`, `parent`, `title`, `content`, `alias`, `image`, `author`) VALUES (NULL, '$theme_id', '$title', '$content', '$article_alias', 'empty_thumb.jpg', $author);";
     $res_insert_article = mysqli_query($connection, $query_insert_article);
     
     return $theme_id;

@@ -29,11 +29,13 @@ if ($url_art == "") {
 } else if ($url_art == "create"){
     $insert_data = get_data($_POST);
     extract($insert_data);
+    //$author = $_SESSION['user']['user_id'];
     $article_alias = create_alias();
     insert_content($parent,             // название темы статьи
                     $title,             // название статьи
-                    $content,           //содержание статьи
-                    $article_alias,     //алиас
+                    $content,           // содержание статьи
+                    $article_alias,     // алиас
+                    $author,            // автор
                     $parent_theme_id); 
 header("Location: ".PATH."articles/".$article_alias."");
     

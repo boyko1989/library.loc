@@ -43,6 +43,7 @@
         </textarea><br><br>            
            
         <input type="hidden" name="article_id" value="<?php if (isset($id)) echo $id ;?>">
+        <input type="hidden" name="author" value="<?php echo $_SESSION['user']['user_id'] ;?>">
         <input type="hidden" name="theme_id" value="<?php if (isset($theme_id)) echo $theme_id ;?>">
         <input type="hidden" name="alias" value="<?php if (isset($alias)) echo $alias ;?>">
         <input type="submit" name="submit" value="Сохранить">
