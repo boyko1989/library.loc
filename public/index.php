@@ -1,19 +1,32 @@
-<?php
+<?php session_start();
 error_reporting(E_ALL);
-
 $routes = array(
-	array('url' => '#^$|^\?#', 'view' => 'theme'),
-	array('url' => '#^articles/(?P<articles_alias>[a-z0-9-]+)#i', 'view' => 'articles'),
-	array('url' => '#^theme/(?P<id>\d+)#i', 'view' => 'theme'),
-	array('url' => '#^editor/#i', 'view' =>'editor'),
-	array('url' => '#^editor/(?P<articles_alias>[a-z0-9-]+)#i', 'view' =>'editor'),
-	array('url' => '#^themeditor/#i', 'view' =>'themeditor'),
-	array('url' => '#^themeditorprot\.php$#i', 'view' => 'themeditor'),
+	array('url' => '#^$#', 'view' => 'hello'),
+	array('url' => '#^\?#', 'view' => 'theme'),
 	array('url' => '#^register/$#i', 'view' => 'register'),
-	array('url' => '#^register/(?P<autoriz_do>[a-z0-9]+)#i', 'view' => 'register')
+	array('url' => '#^register/(?P<register_do>[a-z0-9]+)#i', 'view' => 'register'),
+	array('url' => '#^authorization/$#i', 'view' => 'authorization'),
+	array('url' => '#^authorization/(?P<authorization_do>[a-z0-9]+)#i', 'view' => 'authorization')
+	
 );
+if (!empty($_SESSION['user'])) {
+	$routes = array(
+		array('url' => '#^$|^\?#', 'view' => 'theme'),
+		array('url' => '#^articles/(?P<articles_alias>[a-z0-9-]+)#i', 'view' => 'articles'),
+		array('url' => '#^theme/(?P<id>\d+)#i', 'view' => 'theme'),
+		array('url' => '#^theme/#i', 'view' => 'theme'),
+		array('url' => '#^editor/#i', 'view' =>'editor'),
+		array('url' => '#^editor/(?P<articles_alias>[a-z0-9-]+)#i', 'view' =>'editor'),
+		array('url' => '#^themeditor/#i', 'view' =>'themeditor'),
+		array('url' => '#^themeditorprot\.php$#i', 'view' => 'themeditor'),
+		array('url' => '#^register/$#i', 'view' => 'register'),
+		array('url' => '#^register/(?P<register_do>[a-z0-9]+)#i', 'view' => 'register'),
+		array('url' => '#^authorization/$#i', 'view' => 'authorization'),
+		array('url' => '#^authorization/(?P<authorization_do>[a-z0-9]+)#i', 'view' => 'authorization'),
+		array('url' => '#^signup/$#i', 'view' => 'signup')
+	);
+}
 
-// $url = str_replace('/catalog/', '', $_SERVER['REQUEST_URI']);
 $url = ltrim($_SERVER['REQUEST_URI'], '/');
 
 foreach ($routes as $route) {
@@ -32,4 +45,9 @@ extract($match);
 // $id - ID категории
 // $product_alias - alias продукта
 // $view - вид для подключения
-include "controllers/{$view}_controller.php";
+if (empty($_SESSION['user']) and $view == 'hello') {
+	require_once('controllers/hello_controller.php');
+	die;
+} else {
+	include "controllers/{$view}_controller.php";
+}

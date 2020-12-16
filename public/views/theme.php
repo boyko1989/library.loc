@@ -1,4 +1,4 @@
-<?php session_start();
+<?php //session_start();
 	require_once('html/head.php');
 	require_once('html/header.php');?>
 <body>
@@ -48,4 +48,5 @@ $('#menu').toggleClass('active');
 
 	</script>
 </body>
+<?php require_once('html/footer.php');?>
 </html>
