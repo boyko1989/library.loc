@@ -137,7 +137,7 @@ function insert_content($parent,            // название темы ста�
 
         # сначала нужно проверить есть ли тема, которая попала из $parent
 
-    $query_select_theme = "SELECT `id`, `parent` FROM `theme` WHERE `title`='$parent';";  
+    $query_select_theme = "SELECT `id`, `parent` FROM `theme` WHERE `title`='$parent' AND `author`=$author;";  
     $res_select_theme = mysqli_query($connection, $query_select_theme);
     $rows_theme = mysqli_num_rows($res_select_theme);
 
@@ -148,19 +148,19 @@ function insert_content($parent,            // название темы ста�
 
             // получаем номер новой темы
 
-        $query_select_id_theme = "SELECT `id` FROM `theme` WHERE `title`='$parent';"; 
+        $query_select_id_theme = "SELECT `id` FROM `theme` WHERE `title`='$parent' AND `author`=$author;"; 
         $res_select_id_theme = mysqli_query($connection, $query_select_id_theme);     
         $res_select_id_theme = mysqli_fetch_assoc($res_select_id_theme);
         $theme_id = $res_select_id_theme['id'];
 
     } else {
 
-        $query_select_id_theme = "SELECT `id` FROM `theme` WHERE `title`='$parent';"; 
+        $query_select_id_theme = "SELECT `id` FROM `theme` WHERE `title`='$parent' AND `author`=$author;"; 
         $res_select_id_theme = mysqli_query($connection, $query_select_id_theme);     
         $res_select_id_theme = mysqli_fetch_assoc($res_select_id_theme);
         $theme_id = $res_select_id_theme['id'];
 
-        $query_update_theme = "UPDATE `theme` SET `title`='$parent' WHERE `theme`.`id`='$theme_id';";
+        $query_update_theme = "UPDATE `theme` SET `title`='$parent' WHERE `theme`.`id`='$theme_id' AND `theme`.`author`=$author;";
         $res_update_theme = mysqli_query($connection, $query_update_theme); 
     }
 
