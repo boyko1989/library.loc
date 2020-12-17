@@ -7,6 +7,9 @@
             <span>А</span>        
         </a>
         <div class="nav-toggle"><span></span></div>
+            <?php if (!empty($_SESSION)):?>
+            <div class="user"><?=$_SESSION['user']['user']?></div>
+            <?php endif; ?>
             <form action="../../controller/search.php" method="get" id="searchform">
                 <input type="text" placeholder="Искать на сайте...">
                 <button type="submit"><i class="fa fa-search"></i></button>

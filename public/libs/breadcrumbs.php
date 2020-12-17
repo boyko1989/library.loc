@@ -4,7 +4,7 @@
 $breadcrumbs_array = breadcrumbs($theme, $id);
 
 if($breadcrumbs_array){
-	$breadcrumbs = "<a href='" .PATH. "'>Главная</a> / ";
+	$breadcrumbs = "<a href='" .PATH. "'>Начальная страница</a> / ";
 	foreach($breadcrumbs_array as $id => $title){
 		$breadcrumbs .= "<a href='" .PATH. "theme/{$id}'>{$title}</a> / ";
 	}
@@ -15,6 +15,6 @@ if($breadcrumbs_array){
 		$breadcrumbs .= $get_one_product['title'];
 	}
 }else{
-	$breadcrumbs = "<a href='" .PATH. "'>Главная</a> / Каталог";
+	$breadcrumbs = "<a href='" .PATH. "'>Начальная страница</a> / Каталог";
 }
 ?>

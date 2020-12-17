@@ -15,7 +15,6 @@
 						} else {
 							echo 'Статьи не существует';
 						} 
-						print_arr($_SESSION);
 						?>				
 				</div>
 			</article>
