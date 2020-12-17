@@ -2,11 +2,12 @@
 include 'main_controller.php';
 include "models/{$view}_model.php";
 $author = $_SESSION['user']['user_id'];
-if( !isset($id) ) $id = null;
+if(!isset($id)) $id = null;
 
 include 'libs/breadcrumbs.php';
 // ID дочерних категорий
 $ids = cats_id($theme, $id);
+$ids = rtrim($ids, ",");
 $ids = !$ids ? $id : rtrim($ids, ",");
 
 /*=========Пагинация==========*/
@@ -40,7 +41,7 @@ $pagination = pagination($page, $count_pages);
 
 /*=========Пагинация==========*/
 
-$articles = get_articles($ids, $start_pos, $perpage);
+$articles = get_articles($ids, $start_pos, $perpage, $author);
 
 include "views/{$view}.php";
 

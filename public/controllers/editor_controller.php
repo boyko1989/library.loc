@@ -4,10 +4,11 @@ include "models/articles_model.php";
 include "models/{$view}_model.php";
 $url_art = $_SERVER['REQUEST_URI'];  // определяем alias
 $url_art = is_alias($url_art);
+$author = $_SESSION['user']['user_id'];
 
 if ($url_art == "") {
     $action = 'create';
-    $options = get_option_theme();
+    $options = get_option_theme($author);
     require_once('views/editor.php');
     die;
 

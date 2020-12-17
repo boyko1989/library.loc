@@ -14,13 +14,13 @@ if (!empty($_SESSION['user'])) {
 		array('url' => '#^signup/$#i', 'view' => 'signup')
 	);
 } else {
-$routes = array(
-	array('url' => '#^$#', 'view' => 'hello'),
-	array('url' => '#^register/$#i', 'view' => 'register'),
-	array('url' => '#^register/(?P<register_do>[a-z0-9]+)#i', 'view' => 'register'),
-	array('url' => '#^authorization/$#i', 'view' => 'authorization'),
-	array('url' => '#^authorization/(?P<authorization_do>[a-z0-9]+)#i', 'view' => 'authorization')
-);
+	$routes = array(
+		array('url' => '#^$#', 'view' => 'hello'),
+		array('url' => '#^register/$#i', 'view' => 'register'),
+		array('url' => '#^register/(?P<register_do>[a-z0-9]+)#i', 'view' => 'register'),
+		array('url' => '#^authorization/$#i', 'view' => 'authorization'),
+		array('url' => '#^authorization/(?P<authorization_do>[a-z0-9]+)#i', 'view' => 'authorization')
+	);
 }
 
 $url = ltrim($_SERVER['REQUEST_URI'], '/');

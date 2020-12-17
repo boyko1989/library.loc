@@ -13,9 +13,9 @@ function get_data($arr) {
     return $data;
 }
 
-function get_option_theme() {
+function get_option_theme($author) {
     global $connection;
-    $query = "SELECT `id`,`title` FROM `theme`";
+    $query = "SELECT `id`,`title` FROM `theme` WHERE `author` = $author";
     $res = mysqli_query($connection, $query);
     $res = mysqli_fetch_all($res, MYSQLI_ASSOC);
     $options = "";

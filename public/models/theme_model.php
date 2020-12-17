@@ -11,12 +11,12 @@ function cats_id($array, $id){
 	return $data;
 }
 
-function get_articles($ids, $start_pos, $perpage){
+function get_articles($ids, $start_pos, $perpage, $author){
 	global $connection;
 	if($ids){
-		$query = "SELECT * FROM articles WHERE parent IN($ids) ORDER BY title LIMIT $start_pos, $perpage";
+		$query = "SELECT * FROM `articles` WHERE `parent` IN($ids) AND `author` = $author  ORDER BY title LIMIT $start_pos, $perpage";
 	}else{
-		$query = "SELECT * FROM articles ORDER BY title LIMIT $start_pos, $perpage";
+		$query = "SELECT * FROM `articles` WHERE `author` = $author  ORDER BY `title` LIMIT $start_pos, $perpage";
 	}
 	$res = mysqli_query($connection, $query);
 	$articles = array();
@@ -24,8 +24,7 @@ function get_articles($ids, $start_pos, $perpage){
 		while($row = mysqli_fetch_assoc($res)){
 			$articles[] = $row;
 		}
-	}
-	
+	}	
 	return $articles;
 }
 
