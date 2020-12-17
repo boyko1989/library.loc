@@ -16,5 +16,11 @@ require_once('html/header.php');
 			</article>
 		</div>
 	</div>
+	<script>
+$('.nav-toggle').on('click', function(){
+$('#menu').toggleClass('active');
+});
+
+	</script>
     </body>
 </html>

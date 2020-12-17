@@ -1,14 +1,6 @@
 <?php session_start();
 // error_reporting(E_ALL);
-$routes = array(
-	array('url' => '#^$#', 'view' => 'hello'),
-	array('url' => '#^\?#', 'view' => 'theme'),
-	array('url' => '#^register/$#i', 'view' => 'register'),
-	array('url' => '#^register/(?P<register_do>[a-z0-9]+)#i', 'view' => 'register'),
-	array('url' => '#^authorization/$#i', 'view' => 'authorization'),
-	array('url' => '#^authorization/(?P<authorization_do>[a-z0-9]+)#i', 'view' => 'authorization')
-	
-);
+
 if (!empty($_SESSION['user'])) {
 	$routes = array(
 		array('url' => '#^$|^\?#', 'view' => 'theme'),
@@ -19,12 +11,16 @@ if (!empty($_SESSION['user'])) {
 		array('url' => '#^editor/(?P<articles_alias>[a-z0-9-]+)#i', 'view' =>'editor'),
 		array('url' => '#^themeditor/#i', 'view' =>'themeditor'),
 		array('url' => '#^themeditorprot\.php$#i', 'view' => 'themeditor'),
-		array('url' => '#^register/$#i', 'view' => 'register'),
-		array('url' => '#^register/(?P<register_do>[a-z0-9]+)#i', 'view' => 'register'),
-		array('url' => '#^authorization/$#i', 'view' => 'authorization'),
-		array('url' => '#^authorization/(?P<authorization_do>[a-z0-9]+)#i', 'view' => 'authorization'),
 		array('url' => '#^signup/$#i', 'view' => 'signup')
 	);
+} else {
+$routes = array(
+	array('url' => '#^$#', 'view' => 'hello'),
+	array('url' => '#^register/$#i', 'view' => 'register'),
+	array('url' => '#^register/(?P<register_do>[a-z0-9]+)#i', 'view' => 'register'),
+	array('url' => '#^authorization/$#i', 'view' => 'authorization'),
+	array('url' => '#^authorization/(?P<authorization_do>[a-z0-9]+)#i', 'view' => 'authorization')
+);
 }
 
 $url = ltrim($_SERVER['REQUEST_URI'], '/');
@@ -44,7 +40,7 @@ if( empty($match) ){
 extract($match);
 // $id - ID категории
 // $product_alias - alias продукта
-// $view - вид для подключения
+// $view - вид для подключения/*
 if (empty($_SESSION['user']) and $view == 'hello') {
 	require_once('controllers/hello_controller.php');
 	die;
