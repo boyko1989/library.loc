@@ -15,23 +15,20 @@ for ($i=0; $i<=$max_theme; $i++) {
     $sel = $theme_id[$i];
 echo '<form action="#" method="post">
         <input name="title" type="text" value="'.$theme_arr[$i].'" class="title-table-input">
-        <select name="parent">
-            <option value="ID темы">Общая</option>
-            <option value="ID темы">'.$tab.'Явления природы, влияющие на тактику дворнических работ</option>
-            <option value="ID темы">'.$tab.'Кулинария</option>
-            <option value="ID темы">'.$dtab.'Бутерброды</option>
-            <option value="ID темы">'.$tab.'КМ468</option>
-            <option value="ID темы">'.$tab.'Проверка</option>
-            <option value="ID темы">'.$tab.'Этот сайт</option>
-            <option value="ID темы">'.$dtab.'Строение</option>
-            <option value="ID темы">'.$tab.'Кулинария</option>
-        </select>
-        <input name="sel" type="hidden" value="'.$sel.'">        
+        <input name="out" type="text" class="title-table-input" id="out'.$sel.'">
+        <input name="sel" type="hidden"id="sel'.$sel.'" value="'.$sel.'">        
         <input type="button" class="delete-bottom" value="Удалить">
-        <input type="button" class="vis-bottom" value="Статьи">
+        <input type="button" class="vis-bottom" value="Статьи" id="art'.$sel.'">
         <input type="submit" class="save-bottom-submit" value="Обновить">
     <hr>
-    </form>';
+    </form>
+    <script>
+        document.querySelector(\'#art'.$sel.'\').onclick = myClick;
+        function myClick() {
+            let a = document.querySelector(\'#sel'.$sel.'\').value
+            document.querySelector(\'#out'.$sel.'\').value = a
+        }
+    </script>';
 }
 
 //if ($count_articles !== 0) {
@@ -74,3 +71,15 @@ echo '<form action="#" method="post">
 </script>
 </body>
 </html>
+
+<!--<select name="parent">
+            <option value="ID темы">Общая</option>
+            <option value="ID темы">'.$tab.'Явления природы, влияющие на тактику дворнических работ</option>
+            <option value="ID темы">'.$tab.'Кулинария</option>
+            <option value="ID темы">'.$dtab.'Бутерброды</option>
+            <option value="ID темы">'.$tab.'КМ468</option>
+            <option value="ID темы">'.$tab.'Проверка</option>
+            <option value="ID темы">'.$tab.'Этот сайт</option>
+            <option value="ID темы">'.$dtab.'Строение</option>
+            <option value="ID темы">'.$tab.'Кулинария</option>
+        </select>-->

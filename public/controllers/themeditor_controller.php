@@ -27,7 +27,7 @@ foreach ($theme as $title) {
 $max_theme = (count($theme_arr)) - 1;
 
 # Получаем данные для списка статей выбраной темы
-$sel = 21;
+$sel = 23;
 //if (isset($sel)) {
 	$atricles = get_articles_for_themeditor($sel, $author);
 	@$count_articles = count($articles);
