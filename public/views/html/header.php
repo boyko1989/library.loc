@@ -19,6 +19,7 @@
                 <li><a href="<?php echo PATH; ?>register/">Регистрация</a></li>
                 <li><a href="<?php echo PATH; ?>authorization/">Авторизация</a></li>
             <?php else: ?>
+<li><a href="<?php echo PATH; ?>themeditor/">Редактор тем</a></li>
                 <li><a href="<?php echo PATH; ?>signup/">Выйти</a></li>
             <?php endif;?>
             </ul>
