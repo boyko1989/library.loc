@@ -19,14 +19,7 @@ $("h1").css("color", "blue");
     <title>Example</title>
 </head>
 <body>
-<h1>Пример</h1>
-
-
-
-
-
-
-<script type="text/javascript"  src="http://boyko.sytes.net/public/views/js/example.js"></script>
-
+    <h1>Пример</h1>
+    <script src="http://boyko.sytes.net/public/views/js/example.js"></script>
 </body>
 </html>
