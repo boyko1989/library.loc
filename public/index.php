@@ -17,6 +17,7 @@ if (!empty($_SESSION['user'])) {
 } else {
 	$routes = array(
 		array('url' => '#^$#', 'view' => 'hello'),
+		array('url' => '#^articles/(?P<articles_alias>[a-z0-9-]+)#i', 'view' => 'articles'),
 		array('url' => '#^register/$#i', 'view' => 'register'),
 		array('url' => '#^register/(?P<register_do>[a-z0-9]+)#i', 'view' => 'register'),
 		array('url' => '#^authorization/$#i', 'view' => 'authorization'),
