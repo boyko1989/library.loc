@@ -11,7 +11,8 @@ if (!empty($_SESSION['user'])) {
 		array('url' => '#^editor/(?P<articles_alias>[a-z0-9-]+)#i', 'view' =>'editor'),
 		array('url' => '#^themeditor/#i', 'view' =>'themeditor'),
 		array('url' => '#^themeditorprot\.php$#i', 'view' => 'themeditor'),
-		array('url' => '#^signup/$#i', 'view' => 'signup')
+		array('url' => '#^signup/$#i', 'view' => 'signup'),
+		array('url' => '#^example/$#i', 'view' => 'example')
 	);
 } else {
 	$routes = array(
@@ -19,7 +20,8 @@ if (!empty($_SESSION['user'])) {
 		array('url' => '#^register/$#i', 'view' => 'register'),
 		array('url' => '#^register/(?P<register_do>[a-z0-9]+)#i', 'view' => 'register'),
 		array('url' => '#^authorization/$#i', 'view' => 'authorization'),
-		array('url' => '#^authorization/(?P<authorization_do>[a-z0-9]+)#i', 'view' => 'authorization')
+		array('url' => '#^authorization/(?P<authorization_do>[a-z0-9]+)#i', 'view' => 'authorization'),
+		array('url' => '#^example/$#i', 'view' => 'example')
 	);
 }
 
