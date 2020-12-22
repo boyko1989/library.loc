@@ -5,7 +5,7 @@ function print_arr($array){
 
 function get_theme($author){
 	global $connection;
-	$query = "SELECT * FROM theme WHERE `author`= $author";
+	$query = "SELECT * FROM `theme` WHERE `author`= $author";
 	$res = mysqli_query($connection, $query);
 
 	$arr_cat = array();
@@ -14,6 +14,58 @@ function get_theme($author){
 		$arr_cat[$row['id']] = $row;
 	}
 	return $arr_cat;
+}
+
+function themes_in_form($array) {
+	global $connection;
+    $ht_code = null;
+
+    foreach ($array as $key => $value) {
+        $id = $value['id'];
+        $title = $value['title'];
+        $parent = $value['parent'];
+		if ($parent != 0) {
+			$query_parent = "SELECT `title` FROM `theme` WHERE `id`= $parent";
+			$res_parent = mysqli_query($connection, $query_parent);
+			$res_parent = mysqli_fetch_all($res_parent, MYSQLI_ASSOC);
+			$parent = $res_parent[0]['title'];
+		} else {
+			$parent = 'Корневая тема';
+		}
+
+        $ht_code .= themes_to_form_tamplate($id, $title, $parent).'<br>';    
+    }  
+    return  $ht_code;
+}
+
+function themes_to_form_tamplate($id, $title, $parent) {
+	ob_start();
+	include 'template_theme_list.php';
+	return ob_get_clean();
+}
+
+function get_articles($theme_id) {
+	global $connection;
+    $query_articles = "SELECT `title` FROM `articles` WHERE `parent` = $theme_id";
+    $res_articles = mysqli_query($connection, $query_articles);
+    $res_articles = mysqli_fetch_all($res_articles, MYSQLI_ASSOC);
+    return $res_articles;
+}
+
+function articles_in_form($array) {
+    $ht_code = null; 
+    foreach ($array as $key => $value) {
+        $title = $value['title'];
+        // $theme = $value['theme'];
+        $ht_code .= articles_to_tamplate($title).'<br>';    
+    } 
+    return $ht_code;
+}
+
+function articles_to_tamplate($title) {
+	ob_start();
+	include 'template_article_list.php';
+	return ob_get_clean();
 }
 
 function map_tree($dataset) {

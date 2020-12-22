@@ -1,5 +1,5 @@
 <?php session_start();
-// error_reporting(E_ALL);
+error_reporting(E_ALL);
 
 if (!empty($_SESSION['user'])) {
 	$routes = array(

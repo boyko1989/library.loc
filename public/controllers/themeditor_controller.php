@@ -40,7 +40,10 @@ foreach ($atricles as $title) {
 }
 if (isset($atricles_arr)) $max_articles = (count($atricles_arr)) - 1;
 
-
+if ($url == "themeditor/get_articles.php") {
+	require_once 'get_articles.php';
+	die;
+}
 
 require_once('views/themeditor.php');
 
