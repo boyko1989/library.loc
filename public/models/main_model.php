@@ -44,7 +44,7 @@ function themes_to_form_tamplate($id, $title, $parent) {
 	return ob_get_clean();
 }
 
-function get_articles($theme_id) {
+function get_articles_ed($theme_id) {
 	global $connection;
     $query_articles = "SELECT `title` FROM `articles` WHERE `parent` = $theme_id";
     $res_articles = mysqli_query($connection, $query_articles);
