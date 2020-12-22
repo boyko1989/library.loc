@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <style>
+        .error {
+            background-color: #FF6262;
+        }
+        .ok {
+            background-color: #2EDB2E;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/jquery-1.9.0.min.js"></script>
+    <script type="text/javascript">
+        function check(inputId){
+			$(inputId).focus(function(){
+				$(inputId).removeClass().next().empty();
+			});
+			$(inputId).blur(function(){
+				var data = $.trim($(inputId).val());
+				var name = $(inputId).attr('name');
+				if(data != ''){
+					$.ajax({
+						url: 'check.php',
+						type: 'POST',
+						data: {data: data, check: name},
+						success: function(res){
+							if(res == 'yes'){
+								$(inputId).removeClass().addClass('ok');
+								$(inputId).next().text('Все ок');
+							}else if(res == 'no'){
+								$(inputId).removeClass().addClass('error');
+								$(inputId).next().text('Не подходит');
+							}
+						},
+						error: function(){
+							$(inputId).next().text('Ошибка!');
+						}
+					});
+				}else{
+					$(inputId).removeClass().addClass('error');
+					$(inputId).next().text('Заполните поле!');
+				}
+			});
+		}
+		$(document).ready(function(){
+			check("#login");
+			check("#email");
+		});
+	</script>
+    <title>HTML-файл</title>
+</head>
+<body>
+    <form action="" method="post">
+        <label for="login">Логин:</label>
+        <input type="text" name="login" id="login"><span></span><br><br>
+
+        <label for="pass">Пароль:</label>
+        <input type="password" name="pass" id="pass"><br><br>
+
+        <label for="email">Email:</label>
+        <input type="text" name="email" id="email"><span></span><br><br>
+    </form>
+</body>
+</html>
