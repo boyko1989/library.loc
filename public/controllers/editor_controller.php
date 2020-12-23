@@ -44,7 +44,7 @@ header("Location: ".PATH."articles/".$article_alias."");
     $article_alias = $_SERVER['REQUEST_URI'];
     $article_alias = array_reverse(explode('/', $article_alias));
     $article_alias = $article_alias[1]; 
-    $delete_message = 'Вы уверены, что хотите удалить статью?';
+    $delete_message = 'Точно удалить статью?';
     require_once('views/editor.php'); 
 
 } else if ($url_art == "true-delete"){ 

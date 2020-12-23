@@ -1,0 +1,82 @@
+/*  General */
+*, *:after, *:before  {
+    box-sizing: border-box;
+    margin: 0; 
+    padding: 0;
+    transition: .2s ease-in-out; /* добавим плавность переходов для всех элементов страницы*/
+}
+
+body {
+    font-family: $fontFamilyGen;
+    font-size: $fontSizeGen;
+    line-height: 1.2;
+    color: $colorFontsGen;
+    background: $colorBackgGen;
+    height: 100vh;
+}
+
+ul {
+    padding-left: $paddinLeftUl;
+
+    & > li {
+        padding-left: $paddinLeftLi;
+    }
+}
+
+ol {
+    padding-left: $paddinLeftUl;
+
+    & > li {
+        padding-left: $paddinLeftLi;
+    }
+}
+
+a {
+    text-decoration: none;
+    outline: none;
+    color: $colorLinkGen;
+    &:hover {
+        text-decoration: none;
+        color: $colorBordrSec;
+    }
+}
+
+img {
+    display: block;
+    width: 100%;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: $fontFamilyHn;
+    font-weight: normal;
+    letter-spacing: 1px;
+}
+.wrapper{
+    // position: relative;
+    // height: 100vh;
+    display: flex;
+	flex-direction: column;
+	width: 980px;
+	margin: auto;
+}
+
+.content{
+    //float: left;
+    // flex: 1 0 auto;
+    height: 100%;
+	width: 680px;
+}
+
+.container {
+    flex: 1 0 auto;
+    margin: 0 auto;
+    width: 100%;
+    max-width: 960px;
+    padding: 0 15px;
+
+    &:after {
+        content: "";
+        display: table;
+        clear: both;
+    }
+} 

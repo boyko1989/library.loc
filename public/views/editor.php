@@ -9,11 +9,11 @@
 
         <?php if(isset($delete_message)):?>         
           
-        <form action="<?=$action?>" method="post">
-          <p id="attention"><b><?=$delete_message?></b></p><br><br><br>
+        <form class="attention" method="post">
+          <h1><b><?=$delete_message?></b></h1><br><br><br>
           <p>
-            <a href="<?echo PATH;?>articles/<?=$article_alias?>" class="widget-title-red">НЕТ</a>
-            <a href="true-delete" class="widget-title">ДА</a>
+            <a href="<?echo PATH;?>articles/<?=$article_alias?>" id="no">НЕТ</a>
+            <a href="true-delete" id="yes">ДА</a>
           </p>
         </form> 
 

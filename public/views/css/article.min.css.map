@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,WAAW,AAAC,CACR,WAAW,CAAE,GAAG,CAChB,aAAa,CAAE,IAAI,CAEnB,SAAS,CAAE,KAAK,CAChB,KAAK,CAAE,KAAK,CACf",
+    "sources": [
+        "../sass/article.scss"
+    ],
+    "names": [],
+    "file": "article.min.css"
+}

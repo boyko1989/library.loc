@@ -1,21 +1,18 @@
 <?php 
 	require_once('html/head.php');
 	require_once('html/header.php');?>
-<body>
+
 	<div class="container">
 		<div class="sidebar">
 			<?php include 'sidebar.php'; ?>
 		</div>
 		<div class="content">
-			<p><?=$breadcrumbs;?></p>
-			<br><hr><br>
-			<div>
+			<p><?=$breadcrumbs;?></p><br><hr><br>			
 				<select name="perpage" id="perpage">
 					<?php foreach($option_perpage as $option): ?>
 						<option <?php if($perpage == $option) echo "selected"; ?> value="<?=$option?>"> <?=$option?> статей на страницу</option>
 					<?php endforeach; ?>
-				</select><br>
-			</div><br>
+				</select><br><br>
 			<?php if($articles): ?>				
 				<?php if( $count_pages > 1 ): ?>
 					<div class="pagination"><?=$pagination?></div>
@@ -41,12 +38,11 @@
 				window.location = location.href;
 			});
 		});
-
-$('.nav-toggle').on('click', function(){
-$('#menu').toggleClass('active');
-});
-
+			$('.nav-toggle').on('click', function(){
+			$('#menu').toggleClass('active');
+			});
 	</script>
-</body>
 <?php require_once('html/footer.php');?>
+</div>
+</body>
 </html>

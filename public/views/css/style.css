@@ -254,7 +254,7 @@ header {
 #searchform {
     float: right;
     margin-left: 46px;
-    display: inline-block;
+    display: block;
     position: relative;
 }
 

@@ -1,0 +1,27 @@
+.attention {
+    font-family: $fontFamilyHn; 
+    font-size: 22px;    
+    text-align: center;  
+    
+    & h1 {
+        color: $colorAlert;
+        border: none;
+    }
+
+    & #yes {
+        color: $colorBordrSec;
+        border: 1px solid $colorBordrSec;
+        border-radius: 3px;
+        padding: 10px;
+        margin: 10px;
+    }
+    
+    & #no {
+        color: $colorAlert; 
+        border: 1px solid $colorAlert;
+        border-radius: 5px;
+        padding: 10px;
+        margin: 10px;
+    }
+}
+
