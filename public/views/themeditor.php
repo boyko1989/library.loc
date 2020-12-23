@@ -11,11 +11,5 @@
     <div class="themes"> 
         <?=$form_theme?>
     </div>
-    <div class="articles"> 
-    <?php  
-        echo $_SESSION['form_articles']; 
-    ?>
-    </div>
-
 </body>
 </html>

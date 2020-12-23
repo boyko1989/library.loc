@@ -7,5 +7,10 @@
     <!-- <input type="button" class="delete-bottom" value="Удалить"> -->
     <input type="submit" class="vis-bottom" value="Статьи" id="art<?=$id?>">
     <!-- <input type="submit" class="save-bottom-submit" value="Обновить"> -->
+    <div class="articles">
+    <?php 
+         if ($id == $_SESSION['theme'] ) echo $_SESSION['form_articles']; 
+    ?>
+    </div>
     <hr>
 </form>
