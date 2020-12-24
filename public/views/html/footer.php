@@ -6,10 +6,10 @@
 <a title="Twitter" href="" target="_blank"><i class="fa fa-twitter"></i></a>
 <a title="Pinterest" href="" target="_blank"><i class="fa fa-pinterest"></i></a>
 <a title="Instagram" href="" target="_blank"><i class="fa fa-instagram"></i></a>-->
-    <div class="footer-col">    
-        <ul id="menu">
+      
+        <ul class="foot-menu">
             <li><a href="<?php echo PATH; ?>example/">Файл примера</a></li>
             <li><a href="<?php echo PATH; ?>themeditorprot.php">Прототип редактора</a></li>
         </ul>    
-    </div>
+    
 </footer>

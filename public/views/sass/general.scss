@@ -52,16 +52,17 @@ h1, h2, h3, h4, h5, h6 {
     letter-spacing: 1px;
 }
 .wrapper{
-    // position: relative;
+    position: relative;
     // height: 100vh;
     display: flex;
-	flex-direction: column;
-	width: 980px;
+    flex-direction: column;
+    height: 100vh;
+    width: 980px;
 	margin: auto;
 }
 
 .content{
-    //float: left;
+    float: left;
     // flex: 1 0 auto;
     height: 100%;
 	width: 680px;

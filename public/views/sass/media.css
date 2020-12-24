@@ -1,11 +1,18 @@
 @charset "UTF-8";
 @media (max-width: 768px) {
   /* показываем кнопку для переключения верхней навигации */
+  body {
+    width: 650px;
+  }
   .nav-toggle {
     display: block;
   }
   header {
     padding: 10px 0;
+    width: 650px;
+  }
+  aside {
+    width: 650px;
   }
   /* скрываем верхнее меню, отменяем обтекание, позиционируем его, сместив на высоту шапки сайта */
   #menu {
@@ -35,54 +42,6 @@
   }
   .widget-post-title {
     font-size: 1.5em;
-  }
-}
-
-@media (max-width: 480px) {
-  /* отменяем обтекание для логотипа и выравниваем по центру*/
-  .logo {
-    float: none;
-    margin: 0 auto 15px;
-    display: table;
-  }
-  .logo span {
-    margin: 0 2px;
-  }
-  /* позиционируем меню на увеличившуюся высоту шапки */
-  #menu {
-    top: 118px;
-  }
-  /* позиционируем форму поиска по левому краю */
-  #searchform {
-    float: left;
-    margin-left: 0;
-  }
-  /* убираем верхнюю и нижнюю границы и выравниваем кнопку по центру */
-  .post-footer {
-    border-top: none;
-    border-bottom: none;
-    text-align: center;
-  }
-  /* отменяем позиционирование кнопок соцсетей */
-  .post-social {
-    position: static;
-    text-align: center;
-    transform: none;
-    margin-top: 20px;
-  }
-  .widget-post-title {
-    font-size: 1.2em;
-  }
-  /* отменяем обтекание для столбцов подвала страницы */
-  .footer-col {
-    float: none;
-    margin-bottom: 20px;
-    width: 100%;
-    text-align: center;
-  }
-  .footer-col:last-child {
-    text-align: center;
-    margin-bottom: 0;
   }
 }
 /*# sourceMappingURL=media.css.map */
