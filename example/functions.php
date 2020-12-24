@@ -12,17 +12,22 @@ function get_users() {
 }
 
 function users_in_form($array) {
+    global $connection;
     $ht_code = null;
 
     foreach ($array as $key => $value) {
         $login = $value['login'];
         $id = $value['id'];
-        $ht_code .= users_to_tamplate($login, $id).'<br>';    
+        $query_count = "SELECT COUNT(*) FROM `products` WHERE `author` = $id";
+        $res_count = mysqli_query($connection, $query_count);
+        $res_count = mysqli_fetch_all($res_count, MYSQLI_ASSOC);
+        $count = $res_count[0]['COUNT(*)'];
+        $ht_code .= users_to_tamplate($login, $id, $count).'<br>';    
     }  
     return $ht_code;
 }
 
-function users_to_tamplate($login, $id) {
+function users_to_tamplate($login, $id, $count) {
     ob_start();
 	include 'template_autotlist.php';
 	return ob_get_clean();
