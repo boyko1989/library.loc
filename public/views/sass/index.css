@@ -402,6 +402,45 @@ textarea {
   border: none;
 }
 
+.theme {
+  background-color: white;
+  padding: 20px;
+  margin: 10px;
+}
+
+.battons {
+  position: relative;
+  margin: 10px;
+  height: 70px;
+  width: 600px;
+  border: black 1px solid;
+}
+
+.battons > a {
+  font-size: 18px;
+  margin: 10px;
+  margin-bottom: 10px;
+  padding: 10px;
+  margin-bottom: 15px;
+  text-align: center;
+  text-decoration: none;
+  border: 1px solid #183b01;
+  border-radius: 10px;
+  position: absolute;
+}
+
+.battons > a:hover {
+  text-decoration: none;
+}
+
+.battons > a:active {
+  text-decoration: none;
+}
+
+.list-theme-item {
+  width: 650px;
+}
+
 .select-themeditor {
   font-family: Georgia, serif;
   font-size: 16px;
@@ -445,7 +484,7 @@ textarea {
   outline: none;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 800px) {
   /* показываем кнопку для переключения верхней навигации */
   body {
     width: 650px;
@@ -455,6 +494,9 @@ textarea {
   }
   header {
     padding: 10px 0;
+    width: 650px;
+  }
+  aside {
     width: 650px;
   }
   /* скрываем верхнее меню, отменяем обтекание, позиционируем его, сместив на высоту шапки сайта */

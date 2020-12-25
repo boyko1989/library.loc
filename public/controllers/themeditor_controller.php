@@ -14,6 +14,11 @@ if ($url == "themeditorprot.php") {
 	die;
 }
 
+if ($url == "themeditor/create_theme.php") {
+	require_once('views/create_theme.php');
+	die;
+}
+
 $author = $_SESSION['user']['user_id'];
 # Получаем данные для списка тем
 $theme = get_theme($author);

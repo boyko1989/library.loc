@@ -13,14 +13,17 @@ function get_data($arr) {
     return $data;
 }
 
-function get_option_theme($author) {
+function get_option_theme($author, $select) {
     global $connection;
     $query = "SELECT `id`,`title` FROM `theme` WHERE `author` = $author";
     $res = mysqli_query($connection, $query);
     $res = mysqli_fetch_all($res, MYSQLI_ASSOC);
     $options = "";
     foreach($res as $item) {        
-        $options .= '<option value="'.$item['id'].'">'.$item['title'].'</option>';              
+        if(isset($select)) {
+            if($select == $item['id']) $options .= '<option value="'.$item['id'].'" selected>'.$item['title'].' (ID: '.$item['id'].')</option>';
+        }
+        $options .= '<option value="'.$item['id'].'">'.$item['title'].' (ID: '.$item['id'].')</option>';              
     }
     return $options;
 }

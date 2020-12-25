@@ -8,7 +8,8 @@ $author = $_SESSION['user']['user_id'];
 
 if ($url_art == "") {
     $action = 'create';
-    $options = get_option_theme($author);
+    $select = "";
+    $options = get_option_theme($author, $select);
     require_once('views/editor.php');
     die;
 

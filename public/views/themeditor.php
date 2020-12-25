@@ -8,7 +8,10 @@
 <h2>Дерево тем</h2>
 <?=$theme_menu_without_links;?>
 <h2>Список тем</h2>
-    <div class="themes"> 
+    <div class="theme">
+        <div class="battons">
+            <a href="create_theme.php">Добавить тему</a>         
+        </div>
         <?=$form_theme?>
     </div>
 </body>

@@ -23,24 +23,35 @@ function themes_in_form($array) {
     foreach ($array as $key => $value) {
         $id = $value['id'];
         $title = $value['title'];
-        $parent = $value['parent'];
+		$parent = $value['parent'];
+		$select = $value['parent'];
 		if ($parent != 0) {
+			$query_count = "SELECT COUNT(*) FROM `articles` WHERE `parent` = $id";
+			$count_articles = mysqli_query($connection, $query_count);
+			$count_articles = mysqli_fetch_all($count_articles, MYSQLI_ASSOC);
+			$count_articles = $count_articles[0]['COUNT(*)'];
+			if (empty($count_articles)) $count_articles == 0;
+
 			$query_parent = "SELECT `title` FROM `theme` WHERE `id`= $parent";
 			$res_parent = mysqli_query($connection, $query_parent);
 			$res_parent = mysqli_fetch_all($res_parent, MYSQLI_ASSOC);
 			$parent = $res_parent[0]['title'];
+			
 		} else {
 			$parent = 'Корневая тема';
 		}
+		$options = get_option_theme($_SESSION['user']['user_id'], $select);
 
-        $ht_code .= themes_to_form_tamplate($id, $title, $parent).'<br>';    
+        $ht_code .= themes_to_form_tamplate($id, $title, $parent, $count_articles, $options).'<br>';    
     }  
     return  $ht_code;
 }
 
-function themes_to_form_tamplate($id, $title, $parent) {
+function themes_to_form_tamplate($id, $title, $parent, $count_articles, $options) {
+	$value_submit = "Статьи";
+	$action = 'get_articles.php';
 	ob_start();
-	include 'template_theme_list.php';
+	include('views/template_theme_list.php');
 	return ob_get_clean();
 }
 
@@ -64,7 +75,7 @@ function articles_in_form($array) {
 
 function articles_to_tamplate($title) {
 	ob_start();
-	include 'template_article_list.php';
+	include('views/template_article_list.php');
 	return ob_get_clean();
 }
 
