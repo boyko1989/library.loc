@@ -4,9 +4,9 @@ require_once('models/editor_model.php');
 require_once('models/themeditor_model.php');
 require_once('models/main_model.php');
 
-$url = $_SERVER['REQUEST_URI'];
 $tab = '&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;';
 $dtab = $tab.$tab;
+$url = $_SERVER['REQUEST_URI'];
 $url = ltrim($url, '/');
 
 if ($url == "themeditorprot.php") {
@@ -18,6 +18,19 @@ if ($url == "themeditor/create_theme.php") {
 	require_once('views/create_theme.php');
 	die;
 }
+if (!empty($_GET)){
+	if ($url == "themeditor/delete-theme?id=".$_GET['id']."") {
+		if (isset($_GET)) {
+			$id = $_GET['id'];
+			$delete_message = delete_theme($id);
+			$_SESSION['theme_d_id'] = $_GET['id'];
+			$_SESSION['delete_message'] = $delete_message;
+			header("Location: ".PATH."themeditor/");	
+		}
+		die;
+	}
+}
+
 
 $author = $_SESSION['user']['user_id'];
 # Получаем данные для списка тем
