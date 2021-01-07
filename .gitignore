@@ -1,5 +1,5 @@
 config.php
 LIBRARY.LOC
 files/
-images/
+!images/
 
