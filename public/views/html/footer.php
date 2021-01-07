@@ -11,5 +11,6 @@
             <li><a href="<?php echo PATH; ?>example/">Файл примера</a></li>
             <li><a href="<?php echo PATH; ?>themeditorprot.php">Прототип редактора</a></li>
         </ul>    
-    
+        <script src="https://apps.elfsight.com/p/platform.js" defer></script>
+<div class="elfsight-app-d7100434-b6d1-4d3a-9da6-4f2853644680"></div>
 </footer>
